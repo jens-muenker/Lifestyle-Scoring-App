@@ -1,9 +1,83 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ui.activities.ScanCardActivity">
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <data>
+            <variable
+                name="viewModel"
+                type="com.frosch2010.lifestyle_scoring_app.ui.viewmodels.ScanCardViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.activities.ScanCardActivity">
+
+        <TextView
+            android:id="@+id/helpLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:background="@android:drawable/editbox_background"
+            android:elevation="2dp"
+            android:text="Nur die Kartennamen sind wichtig"
+            android:textColor="@color/design_default_color_on_secondary"
+            android:visibility="visible"/>
+
+        <Button
+            android:id="@+id/cameraCaptureButton"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="80dp"
+            android:layout_centerHorizontal="true"
+            android:elevation="2dp"
+            android:scaleType="fitCenter"
+            android:text="Scan"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent" />
+
+        <TextView
+            android:text="Scanning..."
+            android:layout_width="112dp"
+            android:layout_height="37dp"
+            android:id="@+id/scanningLabel"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/scanProgressBar"
+            android:visibility="invisible"
+            android:textAlignment="center"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:layout_marginTop="10dp" />
+
+        <ProgressBar
+            style="?android:attr/progressBarStyle"
+            android:layout_width="61dp"
+            android:layout_height="55dp"
+            android:id="@+id/scanProgressBar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:indeterminate="true"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toTopOf="@+id/cameraCaptureButton"
+            app:layout_constraintTop_toBottomOf="@+id/scanningLabel" />
+
+        <androidx.camera.view.PreviewView
+            android:id="@+id/cameraPreview"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"></androidx.camera.view.PreviewView>
+
+    </RelativeLayout>
+</layout>
