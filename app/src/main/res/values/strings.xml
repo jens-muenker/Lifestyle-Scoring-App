@@ -1,3 +1,31 @@
 <resources>
     <string name="app_name">Lifestyle-Scoring-App</string>
+    <string name="cat">Katze</string>
+    <string name="kakadu">Kakadu</string>
+    <string name="pony">Pony</string>
+    <string name="hund">Hund</string>
+    <string name="roller">Roller</string>
+    <string name="cabrio">Cabrio</string>
+    <string name="oldtimer">Oldtimer</string>
+    <string name="suv">SUV</string>
+    <string name="sportwagen">Sportwagen</string>
+    <string name="schwimmen">Schwimmen</string>
+    <string name="laufen">Laufen</string>
+    <string name="radfahren">Radfahren</string>
+    <string name="rudern">Rudern</string>
+    <string name="baumhaus">Baumhaus</string>
+    <string name="stadtvilla">Stadtvilla</string>
+    <string name="strandhaus">Strandhaus</string>
+    <string name="wohnturm">Wohnturm</string>
+    <string name="landhaus">Landhaus</string>
+    <string name="hausboot">Hausboot</string>
+    <string name="herrenhaus">Herrenhaus</string>
+    <string name="bauwagen">Bauwagen</string>
+    <string name="manager">Manager</string>
+    <string name="managerin">Managerin</string>
+    <string name="trainerin">Trainerin</string>
+    <string name="autoh_ndler">Autohändler</string>
+    <string name="tier_rztin">Tierärztin</string>
+    <string name="makler">Makler</string>
+    <string name="liebe">Liebe</string>
 </resources>
