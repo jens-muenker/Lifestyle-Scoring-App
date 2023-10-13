@@ -12,7 +12,7 @@ class ScanCardViewModel @Inject constructor(private val cardsRepository: ICardsR
         return cardsRepository.getCardsMap()
     }
 
-    fun showDialogNoCardRecognized(cards: List<ICard?>): Boolean {
-        return cards.isEmpty()
+    fun showDialogNoCardRecognized(cards: ICard?): Boolean {
+        return cards == null
     }
 }

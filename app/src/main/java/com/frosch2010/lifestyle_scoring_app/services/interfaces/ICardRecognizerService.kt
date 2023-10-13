@@ -5,5 +5,5 @@ import com.google.android.gms.tasks.Task
 import com.google.mlkit.vision.common.InputImage
 
 interface ICardRecognizerService {
-    fun process(inputImage: InputImage): Task<List<ICard?>>
+    fun process(inputImage: InputImage): Task<ICard?>
 }

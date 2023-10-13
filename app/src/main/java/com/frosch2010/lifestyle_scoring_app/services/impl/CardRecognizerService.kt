@@ -63,9 +63,9 @@ class CardRecognizerService (private val cards: Map<String, ICard>): ICardRecogn
      * @param inputImage        image containing card titles
      * @return                  task of card list identified (as ids)
      */
-    override fun process(inputImage: InputImage): Task<List<ICard?>> =
+    override fun process(inputImage: InputImage): Task<ICard?> =
         recognizer.process(inputImage).continueWithTask { recognizeTextTask ->
-            val taskCompletionSource = TaskCompletionSource<List<ICard?>>()
+            val taskCompletionSource = TaskCompletionSource<ICard?>()
             Handler(Looper.getMainLooper()).post {
                 val text = recognizeTextTask.result
                 taskCompletionSource.setResult(
@@ -76,7 +76,7 @@ class CardRecognizerService (private val cards: Map<String, ICard>): ICardRecogn
                         .filter { matching -> matching.isAcceptable() }
                         .map { matching -> matching.bestCardResult }
                         .toSet()
-                        .map { it })
+                        .map { it }.firstOrNull())
             }
             taskCompletionSource.task
         }

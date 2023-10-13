@@ -11,9 +11,12 @@ import javax.inject.Singleton
 @Module
 @InstallIn(SingletonComponent::class)
 abstract class ModulesClass {
+
     @Binds
     @Singleton
     abstract fun bindICardsRepository(
         cardsRepository: CardsRepository
     ): ICardsRepository
+
+
 }

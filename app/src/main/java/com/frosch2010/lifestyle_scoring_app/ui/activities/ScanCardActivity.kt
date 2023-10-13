@@ -1,8 +1,10 @@
 package com.frosch2010.lifestyle_scoring_app.ui.activities
 
 import android.Manifest
+import android.app.Activity
 import android.content.ContentValues.TAG
 import android.content.Context
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.BitmapFactory
 import android.media.Image
@@ -14,6 +16,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.camera.core.CameraSelector
 import androidx.camera.core.ExperimentalGetImage
 import androidx.camera.core.ImageCapture
+import androidx.camera.core.ImageCapture.FLASH_MODE_ON
 import androidx.camera.core.ImageCaptureException
 import androidx.camera.core.ImageProxy
 import androidx.camera.core.Preview
@@ -25,14 +28,16 @@ import com.frosch2010.lifestyle_scoring_app.databinding.ActivityScanCardBinding
 import com.frosch2010.lifestyle_scoring_app.models.interfaces.ICard
 import com.frosch2010.lifestyle_scoring_app.services.impl.CardRecognizerService
 import com.frosch2010.lifestyle_scoring_app.services.interfaces.ICardRecognizerService
+import com.frosch2010.lifestyle_scoring_app.services.interfaces.IScanResultCallback
 import com.frosch2010.lifestyle_scoring_app.ui.viewmodels.ScanCardViewModel
+import com.frosch2010.lifestyle_scoring_app.utils.ScanResult
 import com.google.mlkit.vision.common.InputImage
 import dagger.hilt.android.AndroidEntryPoint
 import java.nio.ByteBuffer
 
 
 @AndroidEntryPoint
-class ScanCardActivity : AppCompatActivity() {
+class ScanCardActivity : AppCompatActivity(), IScanResultCallback {
 
     private lateinit var binding: ActivityScanCardBinding
 
@@ -94,7 +99,7 @@ class ScanCardActivity : AppCompatActivity() {
     private fun scan() {
         imageCapture.takePicture(
             ContextCompat.getMainExecutor(this),
-            ImageCapturedCallback(this, recognizer, viewModel)
+            ImageCapturedCallback(this, recognizer, viewModel, this)
         )
     }
 
@@ -118,7 +123,7 @@ class ScanCardActivity : AppCompatActivity() {
         }
     }
 
-    class ImageCapturedCallback(private val context: Context, private val recognizer: ICardRecognizerService, private val viewModel: ScanCardViewModel) : ImageCapture.OnImageCapturedCallback() {
+    class ImageCapturedCallback(private val activity: Activity, private val recognizer: ICardRecognizerService, private val viewModel: ScanCardViewModel, private val callback: IScanResultCallback) : ImageCapture.OnImageCapturedCallback() {
 
         @ExperimentalGetImage
         override fun onCaptureSuccess(imageProxy: ImageProxy) {
@@ -127,16 +132,7 @@ class ScanCardActivity : AppCompatActivity() {
                 val image = convertImage(mediaImage, imageProxy.imageInfo.rotationDegrees)
                 imageProxy.close()
                 recognizer.process(image).addOnSuccessListener {
-
-                    if(viewModel.showDialogNoCardRecognized(it)){
-                        // TODO show dialog
-                    }else{
-                        // TODO close Activity and send result back
-                    }
-
-                    Toast.makeText(context, "Karte: ${(it[0] as ICard).cardType.name}", Toast.LENGTH_LONG).show()
-
-                    println("Card detected : $it")
+                    callback.onScanResult(ScanResult(!viewModel.showDialogNoCardRecognized(it), it))
                 }
             }
         }
@@ -161,6 +157,25 @@ class ScanCardActivity : AppCompatActivity() {
 
         override fun onError(exception: ImageCaptureException) {
             Log.e(TAG, "Use case binding failed", exception)
+        }
+    }
+
+    override fun onScanResult(result: ScanResult) {
+        if(!result.success){
+            // TODO show dialog
+
+            val intent = Intent()
+            intent.putExtra("scan_result", result)
+            setResult(Activity.RESULT_OK, intent)
+            finish()
+
+        }else{
+            // TODO close Activity and send result back
+
+            val intent = Intent()
+            intent.putExtra("scan_result", result)
+            setResult(Activity.RESULT_OK, intent)
+            finish()
         }
     }
 }
