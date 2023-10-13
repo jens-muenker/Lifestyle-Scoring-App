@@ -5,5 +5,6 @@ enum class JobTypeEnum {
     REALESTATEAGENT,
     CARSALESMAN,
     PERSONALTRAINER,
-    MANAGER
+    MANAGER,
+    MANAGERIN
 }

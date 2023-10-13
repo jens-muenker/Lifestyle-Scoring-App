@@ -24,55 +24,100 @@ class CardsRepository @Inject constructor(@ApplicationContext val context: Conte
     override fun getCardsMap(): Map<String, ICard> {
         return mapOf(
             context.getString(R.string.cat) to AnimalCard(CardTypeEnum.ANIMAL, AnimalTypeEnum.CAT),
-            context.getString(R.string.kakadu) to AnimalCard(CardTypeEnum.ANIMAL, AnimalTypeEnum.COCKATOO),
+            context.getString(R.string.cockatoo) to AnimalCard(CardTypeEnum.ANIMAL, AnimalTypeEnum.COCKATOO),
             context.getString(R.string.pony) to AnimalCard(CardTypeEnum.ANIMAL, AnimalTypeEnum.PONY),
-            context.getString(R.string.hund) to AnimalCard(CardTypeEnum.ANIMAL, AnimalTypeEnum.DOG),
+            context.getString(R.string.dog) to AnimalCard(CardTypeEnum.ANIMAL, AnimalTypeEnum.DOG),
 
-            context.getString(R.string.roller) to CarCard(CardTypeEnum.CAR, CarTypeEnum.MOTORCYCLE, 1),
-            context.getString(R.string.roller) to CarCard(CardTypeEnum.CAR, CarTypeEnum.MOTORCYCLE, 2),
-            context.getString(R.string.roller) to CarCard(CardTypeEnum.CAR, CarTypeEnum.MOTORCYCLE, 3),
+            context.getString(R.string.motorcycle) to CarCard(CardTypeEnum.CAR, CarTypeEnum.MOTORCYCLE, 1),
+            context.getString(R.string.motorcycle) to CarCard(CardTypeEnum.CAR, CarTypeEnum.MOTORCYCLE, 2),
+            context.getString(R.string.motorcycle) to CarCard(CardTypeEnum.CAR, CarTypeEnum.MOTORCYCLE, 3),
 
-            context.getString(R.string.cabrio) to CarCard(CardTypeEnum.CAR, CarTypeEnum.CONVERTIBLE, 4),
-            context.getString(R.string.cabrio) to CarCard(CardTypeEnum.CAR, CarTypeEnum.CONVERTIBLE, 5),
-            context.getString(R.string.cabrio) to CarCard(CardTypeEnum.CAR, CarTypeEnum.CONVERTIBLE, 6),
+            context.getString(R.string.convertible) to CarCard(CardTypeEnum.CAR, CarTypeEnum.CONVERTIBLE, 4),
+            context.getString(R.string.convertible) to CarCard(CardTypeEnum.CAR, CarTypeEnum.CONVERTIBLE, 5),
+            context.getString(R.string.convertible) to CarCard(CardTypeEnum.CAR, CarTypeEnum.CONVERTIBLE, 6),
 
-            context.getString(R.string.oldtimer) to CarCard(CardTypeEnum.CAR, CarTypeEnum.VINTAGECAR, 7),
-            context.getString(R.string.oldtimer) to CarCard(CardTypeEnum.CAR, CarTypeEnum.VINTAGECAR, 8),
-            context.getString(R.string.oldtimer) to CarCard(CardTypeEnum.CAR, CarTypeEnum.VINTAGECAR, 9),
+            context.getString(R.string.vintagecar) to CarCard(CardTypeEnum.CAR, CarTypeEnum.VINTAGECAR, 7),
+            context.getString(R.string.vintagecar) to CarCard(CardTypeEnum.CAR, CarTypeEnum.VINTAGECAR, 8),
+            context.getString(R.string.vintagecar) to CarCard(CardTypeEnum.CAR, CarTypeEnum.VINTAGECAR, 9),
 
             context.getString(R.string.suv) to CarCard(CardTypeEnum.CAR, CarTypeEnum.SUV, 10),
             context.getString(R.string.suv) to CarCard(CardTypeEnum.CAR, CarTypeEnum.SUV, 11),
             context.getString(R.string.suv) to CarCard(CardTypeEnum.CAR, CarTypeEnum.SUV, 12),
 
-            context.getString(R.string.sportwagen) to CarCard(CardTypeEnum.CAR, CarTypeEnum.SPORTSCAR, 13),
-            context.getString(R.string.sportwagen) to CarCard(CardTypeEnum.CAR, CarTypeEnum.SPORTSCAR, 14),
+            context.getString(R.string.sportscar) to CarCard(CardTypeEnum.CAR, CarTypeEnum.SPORTSCAR, 13),
+            context.getString(R.string.sportscar) to CarCard(CardTypeEnum.CAR, CarTypeEnum.SPORTSCAR, 14),
 
-            context.getString(R.string.schwimmen) to SportCard(CardTypeEnum.SPORT, SportTypeEnum.SWIMMING),
-            context.getString(R.string.laufen) to SportCard(CardTypeEnum.SPORT, SportTypeEnum.RUNNING),
-            context.getString(R.string.radfahren) to SportCard(CardTypeEnum.SPORT, SportTypeEnum.CYCLING),
-            context.getString(R.string.rudern) to SportCard(CardTypeEnum.SPORT, SportTypeEnum.ROWING),
+            context.getString(R.string.swimming) to SportCard(CardTypeEnum.SPORT, SportTypeEnum.SWIMMING),
+            context.getString(R.string.running) to SportCard(CardTypeEnum.SPORT, SportTypeEnum.RUNNING),
+            context.getString(R.string.cycling) to SportCard(CardTypeEnum.SPORT, SportTypeEnum.CYCLING),
+            context.getString(R.string.rowing) to SportCard(CardTypeEnum.SPORT, SportTypeEnum.ROWING),
 
-            context.getString(R.string.baumhaus) to HouseCard(CardTypeEnum.HOUSE, HouseTypeEnum.TREEHOUSE),
-            context.getString(R.string.stadtvilla) to HouseCard(CardTypeEnum.HOUSE, HouseTypeEnum.VILLA),
-            context.getString(R.string.strandhaus) to HouseCard(CardTypeEnum.HOUSE, HouseTypeEnum.BEACHHOUSE),
-            context.getString(R.string.wohnturm) to HouseCard(CardTypeEnum.HOUSE, HouseTypeEnum.RESIDENTALTOWER),
-            context.getString(R.string.landhaus) to HouseCard(CardTypeEnum.HOUSE, HouseTypeEnum.COUNTRYHOUSE),
-            context.getString(R.string.herrenhaus) to HouseCard(CardTypeEnum.HOUSE, HouseTypeEnum.MANORHOUSE),
-            context.getString(R.string.hausboot) to HouseCard(CardTypeEnum.HOUSE, HouseTypeEnum.HOUSEBOAT),
-            context.getString(R.string.bauwagen) to HouseCard(CardTypeEnum.HOUSE, HouseTypeEnum.CONSTRUCTIONTRAILER),
+            context.getString(R.string.treehouse) to HouseCard(CardTypeEnum.HOUSE, HouseTypeEnum.TREEHOUSE),
+            context.getString(R.string.villa) to HouseCard(CardTypeEnum.HOUSE, HouseTypeEnum.VILLA),
+            context.getString(R.string.beachhouse) to HouseCard(CardTypeEnum.HOUSE, HouseTypeEnum.BEACHHOUSE),
+            context.getString(R.string.residentaltower) to HouseCard(CardTypeEnum.HOUSE, HouseTypeEnum.RESIDENTALTOWER),
+            context.getString(R.string.countryhouse) to HouseCard(CardTypeEnum.HOUSE, HouseTypeEnum.COUNTRYHOUSE),
+            context.getString(R.string.manorhouse) to HouseCard(CardTypeEnum.HOUSE, HouseTypeEnum.MANORHOUSE),
+            context.getString(R.string.houseboat) to HouseCard(CardTypeEnum.HOUSE, HouseTypeEnum.HOUSEBOAT),
+            context.getString(R.string.constructiontrailer) to HouseCard(CardTypeEnum.HOUSE, HouseTypeEnum.CONSTRUCTIONTRAILER),
 
             context.getString(R.string.manager) to JobCard(CardTypeEnum.JOB, JobTypeEnum.MANAGER),
-            context.getString(R.string.managerin) to JobCard(CardTypeEnum.JOB, JobTypeEnum.MANAGER),
-            context.getString(R.string.trainerin) to JobCard(CardTypeEnum.JOB, JobTypeEnum.PERSONALTRAINER),
-            context.getString(R.string.autoh_ndler) to JobCard(CardTypeEnum.JOB, JobTypeEnum.CARSALESMAN),
-            context.getString(R.string.tier_rztin) to JobCard(CardTypeEnum.JOB, JobTypeEnum.VET),
-            context.getString(R.string.makler) to JobCard(CardTypeEnum.JOB, JobTypeEnum.REALESTATEAGENT),
+            context.getString(R.string.managerin) to JobCard(CardTypeEnum.JOB, JobTypeEnum.MANAGERIN),
+            context.getString(R.string.personaltrainer) to JobCard(CardTypeEnum.JOB, JobTypeEnum.PERSONALTRAINER),
+            context.getString(R.string.carsalesman) to JobCard(CardTypeEnum.JOB, JobTypeEnum.CARSALESMAN),
+            context.getString(R.string.vet) to JobCard(CardTypeEnum.JOB, JobTypeEnum.VET),
+            context.getString(R.string.realestateagent) to JobCard(CardTypeEnum.JOB, JobTypeEnum.REALESTATEAGENT),
 
             context.getString(R.string.liebe) to LoveCard(CardTypeEnum.LOVE, LoveTypeEnum.UNKNOWN)
         )
     }
 
     override fun getCardName(card: ICard): String {
-        TODO("Not yet implemented")
+        when(card.cardType){
+
+            CardTypeEnum.LOVE -> return context.getString(R.string.liebe)
+
+            CardTypeEnum.JOB -> return when((card as JobCard).jobType){
+                JobTypeEnum.MANAGER -> context.getString(R.string.manager)
+                JobTypeEnum.MANAGERIN -> context.getString(R.string.managerin)
+                JobTypeEnum.PERSONALTRAINER -> context.getString(R.string.personaltrainer)
+                JobTypeEnum.CARSALESMAN -> context.getString(R.string.carsalesman)
+                JobTypeEnum.VET -> context.getString(R.string.vet)
+                JobTypeEnum.REALESTATEAGENT -> context.getString(R.string.realestateagent)
+            }
+
+            CardTypeEnum.CAR -> return when((card as CarCard).carType) {
+                CarTypeEnum.MOTORCYCLE -> context.getString(R.string.motorcycle)
+                CarTypeEnum.CONVERTIBLE -> context.getString(R.string.convertible)
+                CarTypeEnum.VINTAGECAR -> context.getString(R.string.vintagecar)
+                CarTypeEnum.SUV -> context.getString(R.string.suv)
+                CarTypeEnum.SPORTSCAR -> context.getString(R.string.sportscar)
+            }
+
+            CardTypeEnum.HOUSE -> return when((card as HouseCard).houseType) {
+                HouseTypeEnum.TREEHOUSE -> context.getString(R.string.treehouse)
+                HouseTypeEnum.VILLA -> context.getString(R.string.villa)
+                HouseTypeEnum.BEACHHOUSE -> context.getString(R.string.beachhouse)
+                HouseTypeEnum.RESIDENTALTOWER -> context.getString(R.string.residentaltower)
+                HouseTypeEnum.COUNTRYHOUSE -> context.getString(R.string.countryhouse)
+                HouseTypeEnum.MANORHOUSE -> context.getString(R.string.manorhouse)
+                HouseTypeEnum.HOUSEBOAT -> context.getString(R.string.houseboat)
+                HouseTypeEnum.CONSTRUCTIONTRAILER -> context.getString(R.string.constructiontrailer)
+            }
+
+            CardTypeEnum.ANIMAL -> return when((card as AnimalCard).animalType) {
+                AnimalTypeEnum.CAT -> context.getString(R.string.cat)
+                AnimalTypeEnum.COCKATOO -> context.getString(R.string.cockatoo)
+                AnimalTypeEnum.PONY -> context.getString(R.string.pony)
+                AnimalTypeEnum.DOG -> context.getString(R.string.dog)
+            }
+
+            CardTypeEnum.SPORT -> return when((card as SportCard).sportType) {
+                SportTypeEnum.SWIMMING -> context.getString(R.string.swimming)
+                SportTypeEnum.RUNNING -> context.getString(R.string.running)
+                SportTypeEnum.CYCLING -> context.getString(R.string.cycling)
+                SportTypeEnum.ROWING -> context.getString(R.string.rowing)
+            }
+        }
     }
 }
