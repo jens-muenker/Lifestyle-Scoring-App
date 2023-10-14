@@ -4,4 +4,5 @@ interface ICardsRepository {
     fun getCardsMap(): Map<String, ICard>
     fun getCardName(card: ICard): String
     fun getCarCardPoints(card: ICard): List<Int>
+    fun getLoveCardTypes(): List<String>
 }

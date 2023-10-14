@@ -75,7 +75,13 @@ class CardsRepository @Inject constructor(@ApplicationContext val context: Conte
     override fun getCardName(card: ICard): String {
         when(card.cardType){
 
-            CardTypeEnum.LOVE -> return context.getString(R.string.liebe)
+            CardTypeEnum.LOVE -> return when((card as LoveCard).loveType){
+                LoveTypeEnum.ANIMAL -> context.getString(R.string.animal_love)
+                LoveTypeEnum.HOUSE -> context.getString(R.string.realestate_love)
+                LoveTypeEnum.JOB -> context.getString(R.string.job_love)
+                LoveTypeEnum.CAR -> context.getString(R.string.car_love)
+                LoveTypeEnum.UNKNOWN -> context.getString(R.string.liebe)
+            }
 
             CardTypeEnum.JOB -> return when((card as JobCard).jobType){
                 JobTypeEnum.MANAGER -> context.getString(R.string.manager)
@@ -129,5 +135,14 @@ class CardsRepository @Inject constructor(@ApplicationContext val context: Conte
             CarTypeEnum.SUV -> listOf(10, 11, 12)
             CarTypeEnum.SPORTSCAR -> listOf(13, 14)
         }
+    }
+
+    override fun getLoveCardTypes(): List<String> {
+        return listOf(
+            context.getString(R.string.animal_love),
+            context.getString(R.string.realestate_love),
+            context.getString(R.string.job_love),
+            context.getString(R.string.car_love)
+        )
     }
 }

@@ -30,4 +30,9 @@
     <string name="liebe">Liebe</string>
     <string name="how_many_points">Wie viele Punkte hat die Karte?</string>
     <string name="points">Punkte: %1$s</string>
+    <string name="job_love">Job-Liebe</string>
+    <string name="realestate_love">Häuser-Liebe</string>
+    <string name="car_love">Auto-Liebe</string>
+    <string name="animal_love">Tier-Liebe</string>
+    <string name="what_type_of_love">Um welche Liebe handelt es sich?</string>
 </resources>

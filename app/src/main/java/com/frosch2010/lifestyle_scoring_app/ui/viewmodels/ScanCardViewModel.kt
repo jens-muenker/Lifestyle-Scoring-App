@@ -26,4 +26,12 @@ class ScanCardViewModel @Inject constructor(private val cardsRepository: ICardsR
     fun getCarCardPoints(card: ICard): List<Int> {
         return cardsRepository.getCarCardPoints(card)
     }
+
+    fun shouldAskForLoveType(card: ICard): Boolean {
+        return card.cardType == CardTypeEnum.LOVE
+    }
+
+    fun getLoveCardTypes(): List<String> {
+        return cardsRepository.getLoveCardTypes()
+    }
 }

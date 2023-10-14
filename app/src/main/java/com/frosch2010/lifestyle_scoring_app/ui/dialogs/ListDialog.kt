@@ -2,7 +2,6 @@ package com.frosch2010.lifestyle_scoring_app.ui.dialogs
 
 import android.content.Context
 import android.widget.ArrayAdapter
-import android.widget.TextView
 import android.widget.LinearLayout
 import androidx.appcompat.app.AlertDialog
 

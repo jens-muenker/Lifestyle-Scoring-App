@@ -25,7 +25,9 @@ import androidx.lifecycle.ViewModelProvider
 import com.frosch2010.lifestyle_scoring_app.R
 import com.frosch2010.lifestyle_scoring_app.databinding.ActivityScanCardBinding
 import com.frosch2010.lifestyle_scoring_app.models.entities.CarCard
+import com.frosch2010.lifestyle_scoring_app.models.entities.LoveCard
 import com.frosch2010.lifestyle_scoring_app.models.enums.CarTypeEnum
+import com.frosch2010.lifestyle_scoring_app.models.enums.LoveTypeEnum
 import com.frosch2010.lifestyle_scoring_app.models.interfaces.ICard
 import com.frosch2010.lifestyle_scoring_app.services.impl.CardRecognizerService
 import com.frosch2010.lifestyle_scoring_app.services.interfaces.ICardRecognizerService
@@ -184,12 +186,28 @@ class ScanCardActivity : AppCompatActivity(), IScanResultCallback {
                 })
 
                 listDialog.show()
-            }else{
-                val intent = Intent()
-                intent.putExtra("scan_result", result)
-                setResult(Activity.RESULT_OK, intent)
-                finish()
+                return
             }
+
+            if(viewModel.shouldAskForLoveType(result.cards)){
+                val loveCards = viewModel.getLoveCardTypes()
+                val listDialog = ListDialog(this, getString(R.string.what_type_of_love), loveCards, object : ListDialog.OnItemSelectedListener {
+                    override fun onItemSelected(item: String) {
+                        val intent = Intent()
+                        intent.putExtra("scan_result", ScanResult(result.success, LoveCard(result.cards.cardType, LoveTypeEnum.values()[loveCards.indexOf(item) + 1])))
+                        setResult(Activity.RESULT_OK, intent)
+                        finish()
+                    }
+                })
+
+                listDialog.show()
+                return
+            }
+
+            val intent = Intent()
+            intent.putExtra("scan_result", result)
+            setResult(Activity.RESULT_OK, intent)
+            finish()
         }
     }
 }
