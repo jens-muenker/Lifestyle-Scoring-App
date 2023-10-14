@@ -42,7 +42,17 @@ class PlayerCardsActivity : AppCompatActivity() {
         setContentView(view)
 
         setSupportActionBar(binding.toolbar)
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        //supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
+        val playerNumber = intent.getIntExtra("player_number", -1)
+        if (playerNumber != -1) {
+            viewModel.loadCardsForPlayer(playerNumber)
+
+            val actionBar = supportActionBar
+            actionBar?.title = viewModel.getPlayerName()
+        } else {
+            // TODO: Error handling
+        }
 
         initHandler()
 

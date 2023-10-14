@@ -18,7 +18,7 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:title="Zutat hinzufügen"
+            app:title=""
             app:titleTextColor="#504539"
             android:background="#f0dfd0"
             android:elevation="2dp">
