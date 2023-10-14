@@ -1,5 +1,6 @@
 package com.frosch2010.lifestyle_scoring_app.ui.adapters
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,7 +10,7 @@ import com.frosch2010.lifestyle_scoring_app.R
 import com.frosch2010.lifestyle_scoring_app.models.interfaces.ICard
 import com.frosch2010.lifestyle_scoring_app.ui.viewmodels.dto.CardDTO
 
-class PlayerCardsAdapter(private var cards: List<CardDTO>) : RecyclerView.Adapter<PlayerCardsAdapter.ViewHolder>() {
+class PlayerCardsAdapter(private var cards: List<CardDTO>, private val context: Context) : RecyclerView.Adapter<PlayerCardsAdapter.ViewHolder>() {
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
 
@@ -21,6 +22,7 @@ class PlayerCardsAdapter(private var cards: List<CardDTO>) : RecyclerView.Adapte
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = cards[position]
         holder.itemView.findViewById<TextView>(R.id.card_name).text = item.name
+        holder.itemView.findViewById<TextView>(R.id.card_points).text = context.getString(R.string.points, item.points.toString())
     }
 
     override fun getItemCount(): Int {

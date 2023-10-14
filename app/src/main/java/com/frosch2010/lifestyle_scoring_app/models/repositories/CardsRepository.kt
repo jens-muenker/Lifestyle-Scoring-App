@@ -120,4 +120,14 @@ class CardsRepository @Inject constructor(@ApplicationContext val context: Conte
             }
         }
     }
+
+    override fun getCarCardPoints(card: ICard): List<Int> {
+        return when((card as CarCard).carType){
+            CarTypeEnum.MOTORCYCLE -> listOf(1, 2, 3)
+            CarTypeEnum.CONVERTIBLE -> listOf(4, 5, 6)
+            CarTypeEnum.VINTAGECAR -> listOf(7, 8, 9)
+            CarTypeEnum.SUV -> listOf(10, 11, 12)
+            CarTypeEnum.SPORTSCAR -> listOf(13, 14)
+        }
+    }
 }

@@ -11,12 +11,10 @@ import android.media.Image
 import android.os.Bundle
 import android.util.Log
 import android.view.View
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.camera.core.CameraSelector
 import androidx.camera.core.ExperimentalGetImage
 import androidx.camera.core.ImageCapture
-import androidx.camera.core.ImageCapture.FLASH_MODE_ON
 import androidx.camera.core.ImageCaptureException
 import androidx.camera.core.ImageProxy
 import androidx.camera.core.Preview
@@ -24,11 +22,15 @@ import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModelProvider
+import com.frosch2010.lifestyle_scoring_app.R
 import com.frosch2010.lifestyle_scoring_app.databinding.ActivityScanCardBinding
+import com.frosch2010.lifestyle_scoring_app.models.entities.CarCard
+import com.frosch2010.lifestyle_scoring_app.models.enums.CarTypeEnum
 import com.frosch2010.lifestyle_scoring_app.models.interfaces.ICard
 import com.frosch2010.lifestyle_scoring_app.services.impl.CardRecognizerService
 import com.frosch2010.lifestyle_scoring_app.services.interfaces.ICardRecognizerService
 import com.frosch2010.lifestyle_scoring_app.services.interfaces.IScanResultCallback
+import com.frosch2010.lifestyle_scoring_app.ui.dialogs.ListDialog
 import com.frosch2010.lifestyle_scoring_app.ui.viewmodels.ScanCardViewModel
 import com.frosch2010.lifestyle_scoring_app.utils.ScanResult
 import com.google.mlkit.vision.common.InputImage
@@ -161,9 +163,8 @@ class ScanCardActivity : AppCompatActivity(), IScanResultCallback {
     }
 
     override fun onScanResult(result: ScanResult) {
-        if(!result.success){
+        if(!result.success || result.cards == null){
             // TODO show dialog
-
             val intent = Intent()
             intent.putExtra("scan_result", result)
             setResult(Activity.RESULT_OK, intent)
@@ -172,10 +173,23 @@ class ScanCardActivity : AppCompatActivity(), IScanResultCallback {
         }else{
             // TODO close Activity and send result back
 
-            val intent = Intent()
-            intent.putExtra("scan_result", result)
-            setResult(Activity.RESULT_OK, intent)
-            finish()
+            if(viewModel.shouldAskForCarPoints(result.cards)){
+                val listDialog = ListDialog(this, getString(R.string.how_many_points), viewModel.getCarCardPoints(result.cards).map { it.toString() }, object : ListDialog.OnItemSelectedListener {
+                    override fun onItemSelected(item: String) {
+                        val intent = Intent()
+                        intent.putExtra("scan_result", ScanResult(result.success, CarCard(result.cards.cardType, (result.cards as CarCard).carType, item.toInt())))
+                        setResult(Activity.RESULT_OK, intent)
+                        finish()
+                    }
+                })
+
+                listDialog.show()
+            }else{
+                val intent = Intent()
+                intent.putExtra("scan_result", result)
+                setResult(Activity.RESULT_OK, intent)
+                finish()
+            }
         }
     }
 }

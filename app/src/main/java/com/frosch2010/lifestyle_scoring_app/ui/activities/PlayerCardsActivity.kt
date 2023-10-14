@@ -46,7 +46,7 @@ class PlayerCardsActivity : AppCompatActivity() {
 
         initHandler()
 
-        val adapter = PlayerCardsAdapter(listOf())
+        val adapter = PlayerCardsAdapter(listOf(), this)
         binding.recView.layoutManager = LinearLayoutManager(this)
         binding.recView.adapter = adapter
 

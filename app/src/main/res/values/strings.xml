@@ -28,4 +28,6 @@
     <string name="vet">Tierärztin</string>
     <string name="realestateagent">Makler</string>
     <string name="liebe">Liebe</string>
+    <string name="how_many_points">Wie viele Punkte hat die Karte?</string>
+    <string name="points">Punkte: %1$s</string>
 </resources>

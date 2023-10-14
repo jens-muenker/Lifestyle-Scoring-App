@@ -13,10 +13,20 @@
         android:layout_height="wrap_content">
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_weight="0.5"
             android:layout_margin="10dp"
             android:id="@+id/card_name"/>
 
+        <TextView
+            android:gravity="end"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_margin="10dp"
+            android:id="@+id/card_points"/>
+
     </LinearLayout>
+
 </layout>
