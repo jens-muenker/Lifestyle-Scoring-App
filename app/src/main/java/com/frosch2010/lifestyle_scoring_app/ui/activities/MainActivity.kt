@@ -49,6 +49,11 @@ class MainActivity : AppCompatActivity(), PlayerAdapter.OnPlayerClickedListener 
         }
     }
 
+    override fun onResume() {
+        super.onResume()
+        viewModel.recalculatePlayerPoints()
+    }
+
     override fun onPlayerClicked(index: Int) {
         val intent = Intent(this, PlayerCardsActivity::class.java)
         intent.putExtra("player_number", index)

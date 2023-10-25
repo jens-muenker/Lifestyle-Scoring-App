@@ -4,6 +4,8 @@ import com.frosch2010.lifestyle_scoring_app.models.interfaces.ICardsRepository
 import com.frosch2010.lifestyle_scoring_app.models.interfaces.IPlayerRepository
 import com.frosch2010.lifestyle_scoring_app.models.repositories.CardsRepository
 import com.frosch2010.lifestyle_scoring_app.models.repositories.PlayerRepository
+import com.frosch2010.lifestyle_scoring_app.services.impl.PlayerPointsCalculationService
+import com.frosch2010.lifestyle_scoring_app.services.interfaces.IPlayerPointsCalculationService
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
@@ -25,4 +27,10 @@ abstract class ModulesClass {
     abstract fun bindIPlayerRepository(
         playerRepository: PlayerRepository
     ): IPlayerRepository
+
+    @Binds
+    @Singleton
+    abstract fun bindIPlayerPointsCalculationService(
+        playerPointsCalculationService: PlayerPointsCalculationService
+    ): IPlayerPointsCalculationService
 }

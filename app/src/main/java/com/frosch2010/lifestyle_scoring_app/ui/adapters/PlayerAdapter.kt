@@ -25,6 +25,7 @@ class PlayerAdapter(private var players: List<PlayerDTO>, private val callback: 
         val item = players[position]
 
         holder.itemView.findViewById<TextView>(R.id.card_name).text = item.name
+        holder.itemView.findViewById<TextView>(R.id.card_points).text = item.score.toString()
         holder.itemView.setOnClickListener {
             callback.onPlayerClicked(position)
         }
