@@ -5,6 +5,8 @@ import android.content.Intent
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View.GONE
+import android.view.View.VISIBLE
 import android.widget.EditText
 import android.widget.Toast
 import androidx.activity.result.ActivityResult
@@ -33,7 +35,6 @@ class PlayerCardsActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_player_cards)
 
         viewModel = ViewModelProvider(this)[PlayerCardsViewModel::class.java]
 
@@ -41,15 +42,16 @@ class PlayerCardsActivity : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
 
-        setSupportActionBar(binding.toolbar)
-        //supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        binding.viewModel = viewModel
+
+        binding.btnBack.setOnClickListener {
+            finish()
+        }
 
         val playerNumber = intent.getIntExtra("player_number", -1)
         if (playerNumber != -1) {
             viewModel.loadCardsForPlayer(playerNumber)
-
-            val actionBar = supportActionBar
-            actionBar?.title = viewModel.getPlayerName()
+            viewModel.updatePlayerName(playerNumber)
         } else {
             // TODO: Error handling
         }
@@ -62,6 +64,12 @@ class PlayerCardsActivity : AppCompatActivity() {
 
         viewModel.playerCards.observe(this) { itemList ->
             adapter.updateData(itemList)
+
+            if(itemList.isEmpty()){
+                binding.txtNoCards.visibility = VISIBLE
+            }else{
+                binding.txtNoCards.visibility = GONE
+            }
         }
 
         binding.btnScan.setOnClickListener {

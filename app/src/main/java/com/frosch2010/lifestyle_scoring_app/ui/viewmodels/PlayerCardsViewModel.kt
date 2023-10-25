@@ -16,8 +16,10 @@ import javax.inject.Inject
 @HiltViewModel
 class PlayerCardsViewModel @Inject constructor(private val cardsRepository: ICardsRepository, private val playerRepository: IPlayerRepository): ViewModel() {
     private var playerIndex = 0
+    private val _playerName = MutableLiveData<String>()
     private val _playerCards = MutableLiveData<List<CardDTO>>()
     val playerCards: LiveData<List<CardDTO>> = _playerCards
+    val playerName: LiveData<String> = _playerName
 
     private fun addCard(card: ICard) {
         val currentCards = _playerCards.value?.toMutableList() ?: mutableListOf()
@@ -57,7 +59,7 @@ class PlayerCardsViewModel @Inject constructor(private val cardsRepository: ICar
         addCard(result.cards!!)
     }
 
-    fun getPlayerName(): String {
-        return playerRepository.getPlayer(playerIndex).name
+    fun updatePlayerName(playerIndex: Int) {
+        _playerName.value = playerRepository.getPlayer(playerIndex).name
     }
 }
