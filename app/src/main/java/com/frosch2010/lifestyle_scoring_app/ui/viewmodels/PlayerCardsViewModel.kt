@@ -62,4 +62,11 @@ class PlayerCardsViewModel @Inject constructor(private val cardsRepository: ICar
     fun updatePlayerName(playerIndex: Int) {
         _playerName.value = playerRepository.getPlayer(playerIndex).name
     }
+
+    fun editPlayerName(newName: String) {
+        val player = playerRepository.getPlayer(playerIndex)
+        player.name = newName
+        playerRepository.updatePlayer(playerIndex, player)
+        _playerName.value = newName
+    }
 }

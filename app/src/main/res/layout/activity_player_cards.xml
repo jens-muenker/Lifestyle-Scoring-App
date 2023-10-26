@@ -75,7 +75,7 @@
             android:text="Derzeit sind noch keine Karten vorhanden.\n\nScanne Karten ein."
             android:textAlignment="center"
             android:textStyle="bold" />
-        
+
         <Button
             android:id="@+id/btn_scan"
             android:layout_width="wrap_content"
@@ -87,7 +87,7 @@
             android:drawableTint="?colorOnPrimary"
             android:layout_centerHorizontal="true"
             android:layout_alignParentBottom="true"
-            android:layout_marginBottom="10dp"/>
+            android:layout_marginBottom="46dp"/>
 
     </RelativeLayout>
 
