@@ -37,6 +37,12 @@ class MainActivity : AppCompatActivity(), PlayerAdapter.OnPlayerClickedListener 
 
         viewModel.players.observe(this) { itemList ->
             adapter.updateData(itemList)
+
+            if(itemList.isEmpty()) {
+                binding.txtNoPlayers.visibility = android.view.View.VISIBLE
+            } else {
+                binding.txtNoPlayers.visibility = android.view.View.GONE
+            }
         }
 
         binding.fabAddPlayer.setOnClickListener {
