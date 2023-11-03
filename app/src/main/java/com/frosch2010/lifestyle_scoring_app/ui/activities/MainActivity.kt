@@ -9,6 +9,7 @@ import com.frosch2010.lifestyle_scoring_app.R
 import com.frosch2010.lifestyle_scoring_app.databinding.ActivityMainBinding
 import com.frosch2010.lifestyle_scoring_app.ui.adapters.PlayerAdapter
 import com.frosch2010.lifestyle_scoring_app.ui.adapters.PlayerCardsAdapter
+import com.frosch2010.lifestyle_scoring_app.ui.decorations.AdaptiveSpacingItemDecoration
 import com.frosch2010.lifestyle_scoring_app.ui.dialogs.PlayerNameDialog
 import com.frosch2010.lifestyle_scoring_app.ui.viewmodels.MainViewModel
 import com.frosch2010.lifestyle_scoring_app.ui.viewmodels.PlayerCardsViewModel
@@ -31,9 +32,10 @@ class MainActivity : AppCompatActivity(), PlayerAdapter.OnPlayerClickedListener 
         val view = binding.root
         setContentView(view)
 
-        val adapter = PlayerAdapter(listOf(), this)
+        val adapter = PlayerAdapter(listOf(), this, this)
         binding.recView.layoutManager = LinearLayoutManager(this)
         binding.recView.adapter = adapter
+        binding.recView.addItemDecoration(AdaptiveSpacingItemDecoration(resources.getDimensionPixelSize(R.dimen.spacing_small), true))
 
         viewModel.players.observe(this) { itemList ->
             adapter.updateData(itemList)
