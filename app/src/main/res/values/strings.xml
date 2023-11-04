@@ -46,4 +46,7 @@
 
     <string name="game_rules">Spielregeln</string>
     <string name="calculate_points">Punkte berechnen</string>
+    <string name="enter_player_name">Spielername eingeben</string>
+    <string name="ok">OK</string>
+    <string name="abort">Abbrechen</string>
 </resources>

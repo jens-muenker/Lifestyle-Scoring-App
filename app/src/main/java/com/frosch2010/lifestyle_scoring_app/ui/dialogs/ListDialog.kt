@@ -4,6 +4,7 @@ import android.content.Context
 import android.widget.ArrayAdapter
 import android.widget.LinearLayout
 import androidx.appcompat.app.AlertDialog
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 
 class ListDialog(
     private val context: Context,
@@ -13,9 +14,7 @@ class ListDialog(
 ) {
 
     fun show() {
-        val builder = AlertDialog.Builder(context)
-        val layout = LinearLayout(context)
-        layout.orientation = LinearLayout.VERTICAL
+        val builder = MaterialAlertDialogBuilder(context)
 
         builder.setTitle(title)
 
@@ -26,9 +25,6 @@ class ListDialog(
             listener.onItemSelected(selected)
         }
 
-        builder.setView(layout)
-
-        // Setze die Dialog-Abbruchbarkeit auf 'false'
         builder.setCancelable(false)
 
         val dialog = builder.create()
