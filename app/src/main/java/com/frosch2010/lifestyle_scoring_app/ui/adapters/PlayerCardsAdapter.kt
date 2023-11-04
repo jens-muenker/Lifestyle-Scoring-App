@@ -1,10 +1,14 @@
 package com.frosch2010.lifestyle_scoring_app.ui.adapters
 
 import android.content.Context
+import android.graphics.PorterDuff
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.LinearLayout
 import android.widget.TextView
+import androidx.core.content.ContextCompat
+import androidx.core.view.ViewCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.frosch2010.lifestyle_scoring_app.R
 import com.frosch2010.lifestyle_scoring_app.models.enums.CardTypeEnum
@@ -30,6 +34,18 @@ class PlayerCardsAdapter(private var cards: List<CardDTO>, private val context: 
         } else {
             holder.itemView.findViewById<TextView>(R.id.card_points).visibility = View.GONE
         }
+
+        val color = when(item.cardType){
+            CardTypeEnum.CAR -> ContextCompat.getColor(context, R.color.card_car)
+            CardTypeEnum.HOUSE -> ContextCompat.getColor(context, R.color.card_house)
+            CardTypeEnum.JOB -> ContextCompat.getColor(context, R.color.card_job)
+            CardTypeEnum.ANIMAL -> ContextCompat.getColor(context, R.color.card_animal)
+            CardTypeEnum.LOVE -> ContextCompat.getColor(context, R.color.card_love)
+            CardTypeEnum.SPORT -> ContextCompat.getColor(context, R.color.card_sport)
+        }
+
+        holder.itemView.findViewById<LinearLayout>(R.id.card_linear).background.setColorFilter(color, PorterDuff.Mode.SRC_ATOP)
+
     }
 
     override fun getItemCount(): Int {

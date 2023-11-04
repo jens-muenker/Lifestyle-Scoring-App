@@ -61,4 +61,11 @@
     <color name="md_theme_dark_surfaceTint">#FFB0C8</color>
     <color name="md_theme_dark_outlineVariant">#514347</color>
     <color name="md_theme_dark_scrim">#000000</color>
+
+    <color name="card_animal">#4F9840</color>
+    <color name="card_sport">#988D40</color>
+    <color name="card_love">#984040</color>
+    <color name="card_house">#7D4098</color>
+    <color name="card_car">#6B6B6B</color>
+    <color name="card_job">#406B98</color>
 </resources>

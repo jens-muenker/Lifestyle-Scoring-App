@@ -11,13 +11,17 @@
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="16dp">
+        android:minHeight="26dp"
+        android:background="@drawable/back_round_points"
+        android:padding="6dp"
+        android:id="@+id/card_linear">
 
         <TextView
             style="@style/FontSizeMedium"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="0.5"
+            android:textColor="?colorOnPrimary"
             android:id="@+id/card_name"/>
 
         <TextView
@@ -26,6 +30,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:textColor="?colorOnPrimary"
             android:id="@+id/card_points"/>
 
     </LinearLayout>
