@@ -37,4 +37,7 @@
     <string name="what_type_of_love">Um welche Liebe handelt es sich?</string>
     <string name="scan_card">Karte scannen</string>
     <string name="playerPoints">%1$s Punkte</string>
+    <string name="only_card_names_are_important">Nur die Kartennamen sind wichtig</string>
+    <string name="scan">Scan</string>
+    <string name="scanning">Scanning...</string>
 </resources>
