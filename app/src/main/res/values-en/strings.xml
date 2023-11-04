@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Lifestyle-Scoring-App</string>
+
+    <string name="job_love">Job Love</string>
+    <string name="realestate_love">Real Estate Love</string>
+    <string name="car_love">Car Love</string>
+    <string name="animal_love">Animal Love</string>
+
+    <string name="how_many_points">How many points does the card have?</string>
+    <string name="what_type_of_love">What type of love is it?</string>
+    <string name="scan_card">Scan Card</string>
+    <string name="points">Points: %1$s</string>
+    <string name="playerPoints">%1$s Points</string>
+    <string name="only_card_names_are_important">Only card names are important</string>
+    <string name="scan">Scan</string>
+    <string name="scanning">Scanning…</string>
+</resources>

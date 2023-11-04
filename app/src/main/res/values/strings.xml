@@ -1,43 +1,46 @@
 <resources>
     <string name="app_name">Lifestyle-Scoring-App</string>
-    <string name="cat">Katze</string>
-    <string name="cockatoo">Kakadu</string>
-    <string name="pony">Pony</string>
-    <string name="dog">Hund</string>
-    <string name="motorcycle">Roller</string>
-    <string name="convertible">Cabrio</string>
-    <string name="vintagecar">Oldtimer</string>
-    <string name="suv">SUV</string>
-    <string name="sportscar">Sportwagen</string>
-    <string name="swimming">Schwimmen</string>
-    <string name="running">Laufen</string>
-    <string name="cycling">Radfahren</string>
-    <string name="rowing">Rudern</string>
-    <string name="treehouse">Baumhaus</string>
-    <string name="villa">Stadtvilla</string>
-    <string name="beachhouse">Strandhaus</string>
-    <string name="residentaltower">Wohnturm</string>
-    <string name="countryhouse">Landhaus</string>
-    <string name="houseboat">Hausboot</string>
-    <string name="manorhouse">Herrenhaus</string>
-    <string name="constructiontrailer">Bauwagen</string>
-    <string name="manager">Manager</string>
-    <string name="managerin">Managerin</string>
-    <string name="personaltrainer">Trainerin</string>
-    <string name="carsalesman">Autohändler</string>
-    <string name="vet">Tierärztin</string>
-    <string name="realestateagent">Makler</string>
-    <string name="liebe">Liebe</string>
-    <string name="how_many_points">Wie viele Punkte hat die Karte?</string>
-    <string name="points">Punkte: %1$s</string>
+
+    <string name="cat" translatable="false">Katze</string>
+    <string name="cockatoo" translatable="false">Kakadu</string>
+    <string name="pony" translatable="false">Pony</string>
+    <string name="dog" translatable="false">Hund</string>
+    <string name="motorcycle" translatable="false">Roller</string>
+    <string name="convertible" translatable="false">Cabrio</string>
+    <string name="vintagecar" translatable="false">Oldtimer</string>
+    <string name="suv" translatable="false">SUV</string>
+    <string name="sportscar" translatable="false">Sportwagen</string>
+    <string name="swimming" translatable="false">Schwimmen</string>
+    <string name="running" translatable="false">Laufen</string>
+    <string name="cycling" translatable="false">Radfahren</string>
+    <string name="rowing" translatable="false">Rudern</string>
+    <string name="treehouse" translatable="false">Baumhaus</string>
+    <string name="villa" translatable="false">Stadtvilla</string>
+    <string name="beachhouse" translatable="false">Strandhaus</string>
+    <string name="residentaltower" translatable="false">Wohnturm</string>
+    <string name="countryhouse" translatable="false">Landhaus</string>
+    <string name="houseboat" translatable="false">Hausboot</string>
+    <string name="manorhouse" translatable="false">Herrenhaus</string>
+    <string name="constructiontrailer" translatable="false">Bauwagen</string>
+    <string name="manager" translatable="false">Manager</string>
+    <string name="managerin" translatable="false">Managerin</string>
+    <string name="personaltrainer" translatable="false">Trainerin</string>
+    <string name="carsalesman" translatable="false">Autohändler</string>
+    <string name="vet" translatable="false">Tierärztin</string>
+    <string name="realestateagent" translatable="false">Makler</string>
+    <string name="liebe" translatable="false">Liebe</string>
+
     <string name="job_love">Job-Liebe</string>
     <string name="realestate_love">Häuser-Liebe</string>
     <string name="car_love">Auto-Liebe</string>
     <string name="animal_love">Tier-Liebe</string>
+
+    <string name="how_many_points">Wie viele Punkte hat die Karte?</string>
     <string name="what_type_of_love">Um welche Liebe handelt es sich?</string>
     <string name="scan_card">Karte scannen</string>
+    <string name="points">Punkte: %1$s</string>
     <string name="playerPoints">%1$s Punkte</string>
     <string name="only_card_names_are_important">Nur die Kartennamen sind wichtig</string>
     <string name="scan">Scan</string>
-    <string name="scanning">Scanning...</string>
+    <string name="scanning">Scanning…</string>
 </resources>
