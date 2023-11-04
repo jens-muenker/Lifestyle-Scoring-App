@@ -43,4 +43,7 @@
     <string name="only_card_names_are_important">Nur die Kartennamen sind wichtig</string>
     <string name="scan">Scan</string>
     <string name="scanning">Scanning…</string>
+
+    <string name="game_rules">Spielregeln</string>
+    <string name="calculate_points">Punkte berechnen</string>
 </resources>

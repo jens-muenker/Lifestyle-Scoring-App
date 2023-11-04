@@ -29,7 +29,7 @@
             android:paddingEnd="16dp"
             android:paddingStart="0dp">
 
-            <!--<ImageButton
+            <ImageButton
                 android:id="@+id/btnBack"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
@@ -38,7 +38,7 @@
                 android:scaleType="fitCenter"
                 android:src="@drawable/ic_back"
                 app:tint="?colorOnPrimary"
-                android:layout_marginStart="16dp"/>-->
+                android:layout_marginStart="16dp"/>
 
             <TextView
                 android:id="@+id/txtTitle"

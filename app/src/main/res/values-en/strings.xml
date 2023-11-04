@@ -15,4 +15,7 @@
     <string name="only_card_names_are_important">Only card names are important</string>
     <string name="scan">Scan</string>
     <string name="scanning">Scanning…</string>
+
+    <string name="game_rules">Game rules</string>
+    <string name="calculate_points">Calculate points</string>
 </resources>

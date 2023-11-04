@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        tools:context=".ui.activities.HomeActivity">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            app:shapeAppearanceOverlay="@style/roundedImageViewRounded"
+            android:layout_width="125dp"
+            android:layout_height="125dp"
+            android:background="@mipmap/ic_launcher"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="60dp"
+            android:id="@+id/app_icon"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/app_icon"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="60dp"
+            android:fontFamily="cursive"
+            android:text="LifeStyle Scoring"
+            android:textSize="46sp"
+            android:textStyle="bold"
+            android:textAlignment="center"/>
+
+        <Button
+            android:id="@+id/btn_calculate_points"
+            style="@style/FontSizeMedium"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_marginBottom="60dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:drawableLeft="@drawable/ic_calculate"
+            android:drawableTint="?colorOnPrimary"
+            android:text="@string/calculate_points"
+            android:textStyle="bold"
+            android:layout_above="@id/btn_game_rules"/>
+
+        <Button
+            android:id="@+id/btn_game_rules"
+            style="@style/FontSizeMedium"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="60dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:drawableLeft="@drawable/ic_rules"
+            android:drawableTint="?colorOnPrimary"
+            android:text="@string/game_rules"
+            android:textStyle="bold"
+            android:backgroundTint="?colorSecondary"/>
+
+    </RelativeLayout>
+</layout>

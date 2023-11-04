@@ -32,6 +32,12 @@ class MainActivity : AppCompatActivity(), PlayerAdapter.OnPlayerClickedListener 
         val view = binding.root
         setContentView(view)
 
+        setSupportActionBar(binding.toolbar)
+
+        binding.btnBack.setOnClickListener {
+            finish()
+        }
+
         val adapter = PlayerAdapter(listOf(), this, this)
         binding.recView.layoutManager = LinearLayoutManager(this)
         binding.recView.adapter = adapter

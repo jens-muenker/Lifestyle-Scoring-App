@@ -40,4 +40,9 @@
     <style name="FontSizeLarge" parent="Theme.LifestyleScoringApp">
         <item name="android:textSize">20sp</item>
     </style>
+
+    <style name="roundedImageViewRounded">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item>
+    </style>
 </resources>
