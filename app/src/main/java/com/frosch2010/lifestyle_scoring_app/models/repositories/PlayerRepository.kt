@@ -4,6 +4,10 @@ import com.frosch2010.lifestyle_scoring_app.models.entities.Player
 import com.frosch2010.lifestyle_scoring_app.models.interfaces.IPlayerRepository
 import javax.inject.Inject
 
+/**
+ * This class is used to manage the player data.
+ * @author Jens Münker
+ */
 class PlayerRepository @Inject constructor(): IPlayerRepository {
 
     private val players: ArrayList<Player> = ArrayList()

@@ -10,6 +10,10 @@ import com.frosch2010.lifestyle_scoring_app.ui.viewmodels.dto.PlayerDTO
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
+/**
+ * This class is used to manage the data for the MainActivity.
+ * @author Jens Münker
+ */
 @HiltViewModel
 class MainViewModel @Inject constructor(private val playerRepository: IPlayerRepository, private val scoreCalculationService: IPlayerPointsCalculationService): ViewModel() {
     private val _players = MutableLiveData<List<PlayerDTO>>()

@@ -3,32 +3,32 @@ package com.frosch2010.lifestyle_scoring_app.ui.activities
 import android.app.Activity
 import android.content.Intent
 import android.os.Build
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View.GONE
 import android.view.View.VISIBLE
-import android.widget.EditText
 import android.widget.Toast
 import androidx.activity.result.ActivityResult
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.frosch2010.lifestyle_scoring_app.R
 import com.frosch2010.lifestyle_scoring_app.databinding.ActivityPlayerCardsBinding
-import com.frosch2010.lifestyle_scoring_app.databinding.ActivityScanCardBinding
 import com.frosch2010.lifestyle_scoring_app.ui.adapters.PlayerCardsAdapter
 import com.frosch2010.lifestyle_scoring_app.ui.decorations.AdaptiveSpacingItemDecoration
 import com.frosch2010.lifestyle_scoring_app.ui.dialogs.PlayerNameDialog
 import com.frosch2010.lifestyle_scoring_app.ui.viewmodels.PlayerCardsViewModel
-import com.frosch2010.lifestyle_scoring_app.ui.viewmodels.ScanCardViewModel
-import com.frosch2010.lifestyle_scoring_app.ui.viewmodels.dto.PlayerDTO
 import com.frosch2010.lifestyle_scoring_app.utils.ScanResult
 import dagger.hilt.android.AndroidEntryPoint
-import javax.inject.Inject
 
+/**
+ * This activity is used to display the cards of a player and to scan new cards for him.
+ * The player number is passed to this activity as intent extra "player_number".
+ * @author Jens Münker
+ */
 @AndroidEntryPoint
 class PlayerCardsActivity : AppCompatActivity() {
 

@@ -13,6 +13,10 @@ import com.frosch2010.lifestyle_scoring_app.utils.ScanResult
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
+/**
+ * This class is used to manage the data for the PlayerCardsActivity.
+ * @author Jens Münker
+ */
 @HiltViewModel
 class PlayerCardsViewModel @Inject constructor(private val cardsRepository: ICardsRepository, private val playerRepository: IPlayerRepository): ViewModel() {
     private var playerIndex = 0

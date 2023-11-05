@@ -9,6 +9,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.frosch2010.lifestyle_scoring_app.R
 import com.frosch2010.lifestyle_scoring_app.ui.viewmodels.dto.PlayerDTO
 
+/**
+ * This adapter is used to display the players in a [RecyclerView].
+ * @author Jens Münker
+ */
 class PlayerAdapter(private var players: List<PlayerDTO>, private val callback: OnPlayerClickedListener, private val context: Context) : RecyclerView.Adapter<PlayerAdapter.ViewHolder>() {
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)

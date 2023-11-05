@@ -2,16 +2,13 @@ package com.frosch2010.lifestyle_scoring_app.ui.dialogs
 
 import android.content.Context
 import android.widget.ArrayAdapter
-import android.widget.LinearLayout
-import androidx.appcompat.app.AlertDialog
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 
-class ListDialog(
-    private val context: Context,
-    private val title: String,
-    private val items: List<String>,
-    private val listener: OnItemSelectedListener
-) {
+/**
+ * This dialog is used to select an item from a list of items.
+ * @author Jens Münker
+ */
+class ListDialog(private val context: Context, private val title: String, private val items: List<String>, private val listener: OnItemSelectedListener) {
 
     fun show() {
         val builder = MaterialAlertDialogBuilder(context)

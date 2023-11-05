@@ -20,6 +20,10 @@ import com.frosch2010.lifestyle_scoring_app.models.interfaces.ICardsRepository
 import dagger.hilt.android.qualifiers.ApplicationContext
 import javax.inject.Inject
 
+/**
+ * This class is used to manage the card data.
+ * @author Jens Münker
+ */
 class CardsRepository @Inject constructor(@ApplicationContext val context: Context): ICardsRepository {
     override fun getCardsMap(): Map<String, ICard> {
         return mapOf(

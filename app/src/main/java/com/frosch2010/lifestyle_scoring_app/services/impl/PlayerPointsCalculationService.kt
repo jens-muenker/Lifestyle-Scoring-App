@@ -12,6 +12,10 @@ import com.frosch2010.lifestyle_scoring_app.models.interfaces.ICard
 import com.frosch2010.lifestyle_scoring_app.services.interfaces.IPlayerPointsCalculationService
 import javax.inject.Inject
 
+/**
+ * This class is used to calculate the points of a player based on the cards he has.
+ * @author Jens Münker
+ */
 class PlayerPointsCalculationService @Inject constructor(): IPlayerPointsCalculationService {
     override fun calculatePlayerPoints(cards: List<ICard>): Int {
         val animalCards = getAnimalCards(cards)

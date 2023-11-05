@@ -8,13 +8,15 @@ import android.view.ViewGroup
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.core.content.ContextCompat
-import androidx.core.view.ViewCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.frosch2010.lifestyle_scoring_app.R
 import com.frosch2010.lifestyle_scoring_app.models.enums.CardTypeEnum
-import com.frosch2010.lifestyle_scoring_app.models.interfaces.ICard
 import com.frosch2010.lifestyle_scoring_app.ui.viewmodels.dto.CardDTO
 
+/**
+ * This adapter is used to display the cards of a player in a [RecyclerView].
+ * @author Jens Münker
+ */
 class PlayerCardsAdapter(private var cards: List<CardDTO>, private val context: Context) : RecyclerView.Adapter<PlayerCardsAdapter.ViewHolder>() {
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)

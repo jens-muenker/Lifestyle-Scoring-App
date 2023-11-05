@@ -6,7 +6,10 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.frosch2010.lifestyle_scoring_app.databinding.ActivityHomeBinding
 
-
+/**
+ * This activity is used to display the home screen of the app.
+ * @author Jens Münker
+ */
 class HomeActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityHomeBinding

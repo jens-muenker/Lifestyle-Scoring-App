@@ -2,16 +2,15 @@ package com.frosch2010.lifestyle_scoring_app.ui.dialogs
 
 import android.content.Context
 import android.view.LayoutInflater
-import android.view.ViewGroup
 import com.frosch2010.lifestyle_scoring_app.R
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.textfield.TextInputEditText
-import com.google.android.material.textfield.TextInputLayout
 
-class PlayerNameDialog(
-    private val context: Context,
-    private val listener: OnNameEnteredListener
-) {
+/**
+ * This dialog is used to enter the name of a player.
+ * @author Jens Münker
+ */
+class PlayerNameDialog(private val context: Context, private val listener: OnNameEnteredListener) {
 
     fun show() {
         val builder = MaterialAlertDialogBuilder(context)

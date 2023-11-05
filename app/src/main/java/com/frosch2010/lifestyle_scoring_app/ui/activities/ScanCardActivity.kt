@@ -26,9 +26,7 @@ import com.frosch2010.lifestyle_scoring_app.R
 import com.frosch2010.lifestyle_scoring_app.databinding.ActivityScanCardBinding
 import com.frosch2010.lifestyle_scoring_app.models.entities.CarCard
 import com.frosch2010.lifestyle_scoring_app.models.entities.LoveCard
-import com.frosch2010.lifestyle_scoring_app.models.enums.CarTypeEnum
 import com.frosch2010.lifestyle_scoring_app.models.enums.LoveTypeEnum
-import com.frosch2010.lifestyle_scoring_app.models.interfaces.ICard
 import com.frosch2010.lifestyle_scoring_app.services.impl.CardRecognizerService
 import com.frosch2010.lifestyle_scoring_app.services.interfaces.ICardRecognizerService
 import com.frosch2010.lifestyle_scoring_app.services.interfaces.IScanResultCallback
@@ -39,7 +37,11 @@ import com.google.mlkit.vision.common.InputImage
 import dagger.hilt.android.AndroidEntryPoint
 import java.nio.ByteBuffer
 
-
+/**
+ * This activity is used to scan a card with the camera and return the result to the calling activity.
+ * The result is returned as [ScanResult] in the intent extra "scan_result".
+ * @author Jens Münker
+ */
 @AndroidEntryPoint
 class ScanCardActivity : AppCompatActivity(), IScanResultCallback {
 
@@ -103,7 +105,7 @@ class ScanCardActivity : AppCompatActivity(), IScanResultCallback {
     private fun scan() {
         imageCapture.takePicture(
             ContextCompat.getMainExecutor(this),
-            ImageCapturedCallback(this, recognizer, viewModel, this)
+            ImageCapturedCallback(recognizer, viewModel, this)
         )
     }
 
@@ -127,7 +129,7 @@ class ScanCardActivity : AppCompatActivity(), IScanResultCallback {
         }
     }
 
-    class ImageCapturedCallback(private val activity: Activity, private val recognizer: ICardRecognizerService, private val viewModel: ScanCardViewModel, private val callback: IScanResultCallback) : ImageCapture.OnImageCapturedCallback() {
+    class ImageCapturedCallback(private val recognizer: ICardRecognizerService, private val viewModel: ScanCardViewModel, private val callback: IScanResultCallback) : ImageCapture.OnImageCapturedCallback() {
 
         @ExperimentalGetImage
         override fun onCaptureSuccess(imageProxy: ImageProxy) {

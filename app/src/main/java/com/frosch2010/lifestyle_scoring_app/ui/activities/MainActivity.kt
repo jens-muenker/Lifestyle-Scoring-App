@@ -1,21 +1,23 @@
 package com.frosch2010.lifestyle_scoring_app.ui.activities
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.frosch2010.lifestyle_scoring_app.R
 import com.frosch2010.lifestyle_scoring_app.databinding.ActivityMainBinding
 import com.frosch2010.lifestyle_scoring_app.ui.adapters.PlayerAdapter
-import com.frosch2010.lifestyle_scoring_app.ui.adapters.PlayerCardsAdapter
 import com.frosch2010.lifestyle_scoring_app.ui.decorations.AdaptiveSpacingItemDecoration
 import com.frosch2010.lifestyle_scoring_app.ui.dialogs.PlayerNameDialog
 import com.frosch2010.lifestyle_scoring_app.ui.viewmodels.MainViewModel
-import com.frosch2010.lifestyle_scoring_app.ui.viewmodels.PlayerCardsViewModel
 import com.frosch2010.lifestyle_scoring_app.ui.viewmodels.dto.PlayerDTO
 import dagger.hilt.android.AndroidEntryPoint
 
+/**
+ * This activity is used to display the list of players and to add new players.
+ * @author Jens Münker
+ */
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity(), PlayerAdapter.OnPlayerClickedListener {
 
