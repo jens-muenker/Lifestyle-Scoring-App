@@ -46,12 +46,12 @@ android {
 dependencies {
     implementation("androidx.core:core-ktx:1.12.0")
     implementation("androidx.appcompat:appcompat:1.6.1")
-    implementation("com.google.android.material:material:1.9.0")
+    implementation("com.google.android.material:material:1.10.0")
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
 
-    implementation ("androidx.camera:camera-camera2:1.4.0-alpha01")
-    implementation ("androidx.camera:camera-lifecycle:1.4.0-alpha01")
-    implementation ("androidx.camera:camera-view:1.4.0-alpha01")
+    implementation ("androidx.camera:camera-camera2:1.4.0-alpha02")
+    implementation ("androidx.camera:camera-lifecycle:1.4.0-alpha02")
+    implementation ("androidx.camera:camera-view:1.4.0-alpha02")
 
     implementation("com.google.android.gms:play-services-mlkit-text-recognition-common:19.0.0")
     implementation("com.google.android.gms:play-services-mlkit-text-recognition:19.0.0")
@@ -65,7 +65,7 @@ dependencies {
     implementation("com.google.dagger:hilt-android:2.48.1")
     kapt ("com.google.dagger:hilt-android-compiler:2.48.1")
 
-    implementation("com.google.android.material:material:1.9.0")
+    implementation("com.google.android.material:material:1.10.0")
 
 }
 
