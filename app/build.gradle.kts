@@ -67,6 +67,10 @@ dependencies {
 
     implementation("com.google.android.material:material:1.10.0")
 
+    testImplementation("org.mockito.kotlin:mockito-kotlin:3.2.0")
+    testImplementation("androidx.arch.core:core-testing:2.2.0")
+
+
 }
 
 kapt {
