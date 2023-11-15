@@ -1,6 +1,6 @@
-# "Lifestyle" Card Game Calculator Android App
+# Lifestyle-Scoring-App : Card Game Calculator
 
-The "Lifestyle" Card Game Calculator App for Android is designed to simplify point calculation for the card game "Lifestyle."
+The Lifestyle-Scoring-App for Android is designed to simplify point calculation for the card game "Lifestyle".
 
 ## Features
 
