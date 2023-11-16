@@ -8,6 +8,10 @@ The Lifestyle-Scoring-App for Android is designed to simplify point calculation 
 - **Error Prevention:** No mistakes in the point calculation.
 - **Multiple Players:** The app supports multiple players.
 
+## Privacy Policy
+
+You can find the privacy policy in german and english [here](https://github.com/jens-muenker/Lifestyle-Scoring-App/tree/privacy_policy).
+
 ## License
 
 This app is open-source and distributed under the [Apache License 2.0](LICENSE).
