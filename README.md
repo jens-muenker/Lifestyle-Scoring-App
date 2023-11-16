@@ -10,7 +10,7 @@ The Lifestyle-Scoring-App for Android is designed to simplify point calculation 
 
 ## Privacy Policy
 
-You can find the privacy policy in german and english [here](https://github.com/jens-muenker/Lifestyle-Scoring-App/tree/privacy_policy).
+You can find the privacy policy in german and english [here](https://github.com/jens-muenker/Lifestyle-Scoring-App/tree/main/privacy_policy).
 
 ## License
 
