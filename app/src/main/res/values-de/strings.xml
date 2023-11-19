@@ -30,4 +30,5 @@
     <string name="back_to_home">Zurück zum Home Bildschirm</string>
 
     <string name="lifestyle_scoring">Lifestyle-Scoring</string>
+    <string name="no_camera_permissions">Kamera-Berechtigung nicht gewährt.</string>
 </resources>

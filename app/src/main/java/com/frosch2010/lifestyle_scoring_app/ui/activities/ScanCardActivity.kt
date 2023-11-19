@@ -11,6 +11,7 @@ import android.media.Image
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.camera.core.CameraSelector
 import androidx.camera.core.ExperimentalGetImage
@@ -126,6 +127,20 @@ class ScanCardActivity : AppCompatActivity(), IScanResultCallback {
                 Camera.REQUIRED_PERMISSIONS,
                 Camera.REQUEST_CODE_PERMISSIONS
             )
+        }
+    }
+
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<out String>,
+        grantResults: IntArray
+    ) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        if (requestCode == Camera.REQUEST_CODE_PERMISSIONS && allPermissionsGranted(this)) {
+            startCamera()
+        } else {
+            Toast.makeText(this, getString(R.string.no_camera_permissions), Toast.LENGTH_LONG).show()
+            finish()
         }
     }
 

@@ -60,4 +60,6 @@
 
     <string name="lifestyle_scoring">Lifestyle-Scoring</string>
 
+    <string name="no_camera_permissions">No camera access granted.</string>
+
 </resources>
