@@ -70,6 +70,7 @@ dependencies {
     testImplementation("org.mockito.kotlin:mockito-kotlin:3.2.0")
     testImplementation("androidx.arch.core:core-testing:2.2.0")
 
+    implementation("io.noties.markwon:core:4.1.1")
 
 }
 

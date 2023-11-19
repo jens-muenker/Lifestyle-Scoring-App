@@ -28,6 +28,11 @@ class HomeActivity : AppCompatActivity() {
         binding.btnGameRules.setOnClickListener {
             openWebsiteInBrowser()
         }
+
+        binding.btnSettings.setOnClickListener {
+            val intent = Intent(this, SettingsActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     private fun openWebsiteInBrowser() {
