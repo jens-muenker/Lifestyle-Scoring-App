@@ -29,41 +29,5 @@
     <string name="add_new_player">Füge einen Spieler hinzu.</string>
     <string name="back_to_home">Zurück zum Home Bildschirm</string>
 
-    <string name="privacy_policy">
-\n\n
-## Datenschutzerklärung für Lifestyle-Scoring-App
-\n\n
-Letzte Aktualisierung: 16.11.2023
-\n\n
-Ich lege großen Wert auf den Schutz Ihrer Daten und Ihrer Privatsphäre. Diese Datenschutzerklärung informiert Sie darüber, wie ich mit Ihren personenbezogenen Daten umgehen, wenn Sie meine Lifestyle-Scoring-App nutzen.
-\n\n
-**1. Verantwortliche Stelle**
-   Verantwortlich für die Datenverarbeitung ist:
-\n\n
-Jens Münker\n
-E-Mail: frosch2040@gmail.com
-\n\n
-**2. Datenerhebung**
-   Ich erhebe und verarbeite nur die Daten, die für die Funktionalität der Lifestyle-Scoring-App notwendig sind. Dabei handelt es sich ausschließlich um:
-\n\n
-- Kamerazugriff: Die App benötigt Zugriff auf die Kamera, um die Karten des Kartenspiels scannen zu können.
-\n\n
-**3. Nutzung der Daten**
-   Die erhobenen Daten werden ausschließlich für den angegebenen Zweck verwendet, nämlich um die Funktionen der Lifestyle-Scoring-App bereitzustellen. Es erfolgt keine Auswertung oder Weitergabe der Daten an Dritte.
-\n\n
-**4. Datenspeicherung**
-   Die erfassten Daten werden lokal auf Ihrem Gerät gespeichert und nicht auf unseren Servern. Nach der Karten-Erfassung werden die Daten gelöscht.
-\n\n
-**5. Weitergabe von Daten**
-   Da ich keine personenbezogenen Daten erhebe, gibt es keine Weitergabe dieser Daten an Dritte.
-\n\n
-**6. Rechte des Nutzers**
-   Sie haben das Recht auf Auskunft über die bei mir zu Ihrer Person gespeicherten Daten. Darüber hinaus haben Sie das Recht auf Berichtigung, Löschung oder Sperrung unzutreffender Daten. Bitte kontaktieren Sie mich dazu über die in Abschnitt 1 genannten Kontaktdaten.
-\n\n
-**7. Änderungen dieser Datenschutzerklärung**
-   Ich behalte mir vor, diese Datenschutzerklärung bei Bedarf zu aktualisieren. Die jeweils aktuelle Version ist auf der [GitHub page](https://github.com/jens-muenker/Lifestyle-Scoring-App) der App verfügbar.
-\n\n
-**8. Kontakt**
-   Für Fragen oder Anliegen bezüglich dieser Datenschutzerklärung können Sie sich an frosch2040@gmail.com wenden.
-    </string>
+    <string name="lifestyle_scoring">Lifestyle-Scoring</string>
 </resources>
