@@ -20,7 +20,7 @@ class PlayerRepository @Inject constructor(): IPlayerRepository {
         return players
     }
 
-    override fun removePlayer(index: Int) {
+    override fun deletePlayer(index: Int) {
         players.removeAt(index)
     }
 

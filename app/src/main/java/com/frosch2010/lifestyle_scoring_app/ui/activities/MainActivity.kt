@@ -40,7 +40,7 @@ class MainActivity : AppCompatActivity(), PlayerAdapter.OnPlayerClickedListener 
             finish()
         }
 
-        val adapter = PlayerAdapter(listOf(), this, this)
+        val adapter = PlayerAdapter(listOf(), this, this, viewModel)
         binding.recView.layoutManager = LinearLayoutManager(this)
         binding.recView.adapter = adapter
         binding.recView.addItemDecoration(AdaptiveSpacingItemDecoration(resources.getDimensionPixelSize(R.dimen.spacing_small), true))

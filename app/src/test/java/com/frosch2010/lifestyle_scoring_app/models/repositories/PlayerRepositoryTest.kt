@@ -42,7 +42,7 @@ class PlayerRepositoryTest {
         playerRepository.addPlayer(player)
 
         // Act
-        playerRepository.removePlayer(0)
+        playerRepository.deletePlayer(0)
 
         // Assert
         assertEquals(0, playerRepository.getPlayers().size)

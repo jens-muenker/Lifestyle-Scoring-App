@@ -62,4 +62,11 @@
 
     <string name="no_camera_permissions">No camera access granted.</string>
 
+    <string name="delete">Delete</string>
+    <string name="delete_player">Delete player?</string>
+    <string name="message_delete_player">Are you sure to delete the player?</string>
+    <string name="delete_card">Delete card?</string>
+    <string name="message_delete_card">Are you sure to delete the card?</string>
+    <string name="yes">Yes</string>
+
 </resources>

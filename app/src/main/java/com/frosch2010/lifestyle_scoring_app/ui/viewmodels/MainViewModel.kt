@@ -33,4 +33,11 @@ class MainViewModel @Inject constructor(private val playerRepository: IPlayerRep
     fun recalculatePlayerPoints() {
         _players.value = playerRepository.getPlayers().map { PlayerDTO(it.name, scoreCalculationService.calculatePlayerPoints(it.cards)) }
     }
+
+    fun deletePlayer(playerIndex: Int) {
+        val currentPlayers = _players.value?.toMutableList() ?: mutableListOf()
+        currentPlayers.removeAt(playerIndex)
+        playerRepository.deletePlayer(playerIndex)
+        _players.value = currentPlayers
+    }
 }

@@ -31,4 +31,11 @@
 
     <string name="lifestyle_scoring">Lifestyle-Scoring</string>
     <string name="no_camera_permissions">Kamera-Berechtigung nicht gewährt.</string>
+    <string name="delete">Löschen</string>
+    <string name="delete_player">Spieler löschen?</string>
+    <string name="message_delete_player">Möchten Sie den Spieler wirklich löschen?</string>
+    <string name="delete_card">Karte löschen?</string>
+    <string name="message_delete_card">Möchten Sie die Karte wirklich löschen?</string>
+
+    <string name="yes">Ja</string>
 </resources>

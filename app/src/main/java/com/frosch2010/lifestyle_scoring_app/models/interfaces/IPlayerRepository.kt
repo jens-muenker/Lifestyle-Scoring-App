@@ -24,7 +24,7 @@ interface IPlayerRepository {
      * This method is used to remove a player from the repository.
      * @param index The index of the player to remove.
      */
-    fun removePlayer(index: Int)
+    fun deletePlayer(index: Int)
 
     /**
      * This method is used to update a player in the repository.
