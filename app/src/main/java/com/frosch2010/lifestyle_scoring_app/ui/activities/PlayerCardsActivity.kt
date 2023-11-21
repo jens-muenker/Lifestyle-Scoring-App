@@ -87,7 +87,11 @@ class PlayerCardsActivity : AppCompatActivity() {
         initHandler()
 
         val adapter = PlayerCardsAdapter(listOf(), this, viewModel)
-        binding.recView.layoutManager = LinearLayoutManager(this)
+        val layoutManager = LinearLayoutManager(this)
+        layoutManager.stackFromEnd = true
+
+        binding.recView.layoutManager = layoutManager
+        binding.recView.setHasFixedSize(true)
         binding.recView.adapter = adapter
         binding.recView.addItemDecoration(AdaptiveSpacingItemDecoration(resources.getDimensionPixelSize(R.dimen.spacing_small), true))
 

@@ -69,4 +69,5 @@
     <string name="message_delete_card">Are you sure to delete the card?</string>
     <string name="yes">Yes</string>
     <string name="scan_error_message">An error has occurred. Please try again.</string>
+    <string name="no_cards">No cards.</string>
 </resources>
