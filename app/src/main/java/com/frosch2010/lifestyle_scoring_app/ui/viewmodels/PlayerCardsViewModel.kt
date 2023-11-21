@@ -73,4 +73,13 @@ class PlayerCardsViewModel @Inject constructor(private val cardsRepository: ICar
         playerRepository.updatePlayer(playerIndex, player)
         _playerName.value = newName
     }
+
+    fun deleteCard(cardIndex: Int) {
+        val player = playerRepository.getPlayer(playerIndex)
+        val currentCards = _playerCards.value?.toMutableList() ?: mutableListOf()
+        currentCards.removeAt(cardIndex)
+        _playerCards.value = currentCards
+        player.cards.removeAt(cardIndex)
+        playerRepository.updatePlayer(playerIndex, player)
+    }
 }
