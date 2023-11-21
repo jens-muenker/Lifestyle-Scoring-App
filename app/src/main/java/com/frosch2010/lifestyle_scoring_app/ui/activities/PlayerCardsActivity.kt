@@ -121,13 +121,13 @@ class PlayerCardsActivity : AppCompatActivity() {
                 }
 
                 if(scanResult == null || !scanResult.success){
-                    Toast.makeText(this, "Ein Fehler ist beim Scan aufgetreten. Versuche es nochmal.", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, getString(R.string.scan_error_message), Toast.LENGTH_SHORT).show()
                     return@registerForActivityResult
                 }
 
                 viewModel.gotScanResult(scanResult)
             }else{
-                Toast.makeText(this, "Ein Fehler ist beim Scan aufgetreten. Versuche es nochmal.", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, getString(R.string.scan_error_message), Toast.LENGTH_SHORT).show()
             }
         }
     }
