@@ -6,8 +6,10 @@ import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
+import androidx.appcompat.content.res.AppCompatResources
 import androidx.appcompat.widget.PopupMenu
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
@@ -67,6 +69,11 @@ class PlayerCardsAdapter(private var cards: List<CardDTO>, private val context: 
             true
         }
 
+        if(item.icon != null) {
+            val image = holder.itemView.findViewById<ImageView>(R.id.card_icon)
+            image.setImageDrawable(AppCompatResources.getDrawable(context, item.icon))
+            image.visibility = View.VISIBLE
+        }
     }
 
     override fun getItemCount(): Int {

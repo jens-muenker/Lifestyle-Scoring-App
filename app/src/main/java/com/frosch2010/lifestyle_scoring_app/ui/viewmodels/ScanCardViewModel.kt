@@ -1,5 +1,6 @@
 package com.frosch2010.lifestyle_scoring_app.ui.viewmodels
 
+import android.graphics.drawable.Drawable
 import androidx.lifecycle.ViewModel
 import com.frosch2010.lifestyle_scoring_app.models.enums.CardTypeEnum
 import com.frosch2010.lifestyle_scoring_app.models.interfaces.ICard
@@ -35,5 +36,9 @@ class ScanCardViewModel @Inject constructor(private val cardsRepository: ICardsR
 
     fun getLoveCardTypes(): List<String> {
         return cardsRepository.getLoveCardTypes()
+    }
+
+    fun getLoveCardsWithIcon(): List<Pair<String, Int>> {
+        return cardsRepository.getLoveCardsWithIcon()
     }
 }

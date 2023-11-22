@@ -1,6 +1,7 @@
 package com.frosch2010.lifestyle_scoring_app.models.repositories
 
 import android.content.Context
+import android.graphics.drawable.Drawable
 import com.frosch2010.lifestyle_scoring_app.R
 import com.frosch2010.lifestyle_scoring_app.models.entities.AnimalCard
 import com.frosch2010.lifestyle_scoring_app.models.entities.CarCard
@@ -147,6 +148,25 @@ class CardsRepository @Inject constructor(@ApplicationContext val context: Conte
             context.getString(R.string.realestate_love),
             context.getString(R.string.job_love),
             context.getString(R.string.car_love)
+        )
+    }
+
+    override fun getLoveIcon(loveCard: LoveCard): Int {
+        return when(loveCard){
+            LoveCard(CardTypeEnum.LOVE, LoveTypeEnum.ANIMAL) -> R.drawable.ic_animal
+            LoveCard(CardTypeEnum.LOVE, LoveTypeEnum.HOUSE) -> R.drawable.ic_house
+            LoveCard(CardTypeEnum.LOVE, LoveTypeEnum.JOB) -> R.drawable.ic_work
+            LoveCard(CardTypeEnum.LOVE, LoveTypeEnum.CAR) -> R.drawable.ic_car
+            else -> R.drawable.ic_question
+        }
+    }
+
+    override fun getLoveCardsWithIcon(): List<Pair<String, Int>> {
+        return listOf(
+            Pair(context.getString(R.string.animal_love), R.drawable.ic_animal),
+            Pair(context.getString(R.string.realestate_love), R.drawable.ic_house),
+            Pair(context.getString(R.string.job_love), R.drawable.ic_work),
+            Pair(context.getString(R.string.car_love), R.drawable.ic_car)
         )
     }
 }

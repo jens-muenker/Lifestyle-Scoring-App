@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.frosch2010.lifestyle_scoring_app.models.entities.CarCard
+import com.frosch2010.lifestyle_scoring_app.models.entities.LoveCard
 import com.frosch2010.lifestyle_scoring_app.models.enums.CardTypeEnum
 import com.frosch2010.lifestyle_scoring_app.models.interfaces.ICard
 import com.frosch2010.lifestyle_scoring_app.models.interfaces.ICardsRepository
@@ -33,7 +34,7 @@ class PlayerCardsViewModel @Inject constructor(private val cardsRepository: ICar
             CardTypeEnum.SPORT -> currentCards.add(CardDTO(CardTypeEnum.SPORT, cardsRepository.getCardName(card)))
             CardTypeEnum.HOUSE -> currentCards.add(CardDTO(CardTypeEnum.HOUSE, cardsRepository.getCardName(card)))
             CardTypeEnum.JOB -> currentCards.add(CardDTO(CardTypeEnum.JOB, cardsRepository.getCardName(card)))
-            CardTypeEnum.LOVE -> currentCards.add(CardDTO(CardTypeEnum.LOVE, cardsRepository.getCardName(card)))
+            CardTypeEnum.LOVE -> currentCards.add(CardDTO(CardTypeEnum.LOVE, cardsRepository.getCardName(card), cardsRepository.getLoveIcon(card as LoveCard)))
         }
         _playerCards.value = currentCards
         val player = playerRepository.getPlayer(playerIndex)

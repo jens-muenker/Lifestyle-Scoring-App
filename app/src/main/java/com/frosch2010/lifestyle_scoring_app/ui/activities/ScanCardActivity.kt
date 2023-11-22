@@ -7,6 +7,7 @@ import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.BitmapFactory
+import android.graphics.drawable.Drawable
 import android.media.Image
 import android.os.Bundle
 import android.util.Log
@@ -32,6 +33,7 @@ import com.frosch2010.lifestyle_scoring_app.services.impl.CardRecognizerService
 import com.frosch2010.lifestyle_scoring_app.services.interfaces.ICardRecognizerService
 import com.frosch2010.lifestyle_scoring_app.services.interfaces.IScanResultCallback
 import com.frosch2010.lifestyle_scoring_app.ui.dialogs.ListDialog
+import com.frosch2010.lifestyle_scoring_app.ui.dialogs.ListDialogWithIcons
 import com.frosch2010.lifestyle_scoring_app.ui.viewmodels.ScanCardViewModel
 import com.frosch2010.lifestyle_scoring_app.utils.ScanResult
 import com.google.mlkit.vision.common.InputImage
@@ -208,7 +210,8 @@ class ScanCardActivity : AppCompatActivity(), IScanResultCallback {
 
             if(viewModel.shouldAskForLoveType(result.cards)){
                 val loveCards = viewModel.getLoveCardTypes()
-                val listDialog = ListDialog(this, getString(R.string.what_type_of_love), loveCards, object : ListDialog.OnItemSelectedListener {
+
+                val listDialog = ListDialogWithIcons(this, getString(R.string.what_type_of_love), viewModel.getLoveCardsWithIcon(), object : ListDialogWithIcons.OnItemSelectedListener {
                     override fun onItemSelected(item: String) {
                         val intent = Intent()
                         intent.putExtra("scan_result", ScanResult(result.success, LoveCard(result.cards.cardType, LoveTypeEnum.values()[loveCards.indexOf(item) + 1])))

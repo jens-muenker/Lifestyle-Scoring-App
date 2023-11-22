@@ -1,5 +1,8 @@
 package com.frosch2010.lifestyle_scoring_app.models.interfaces
 
+import android.graphics.drawable.Drawable
+import com.frosch2010.lifestyle_scoring_app.models.entities.LoveCard
+
 /**
  * This interface is used for the cards repository to manage the card data.
  * @author Jens Münker
@@ -31,4 +34,17 @@ interface ICardsRepository {
      * @return The love card types.
      */
     fun getLoveCardTypes(): List<String>
+
+    /**
+     * This method is used to get the icon for a love card.
+     * @param loveCard The love card to get the icon for.
+     * @return The icon.
+     */
+    fun getLoveIcon(loveCard: LoveCard): Int
+
+    /**
+     * This method is used to get the love cards with icon.
+     * @return The love cards with icon.
+     */
+    fun getLoveCardsWithIcon(): List<Pair<String, Int>>
 }
