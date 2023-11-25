@@ -88,7 +88,6 @@ class PlayerCardsActivity : AppCompatActivity() {
 
         val adapter = PlayerCardsAdapter(listOf(), this, viewModel)
         val layoutManager = LinearLayoutManager(this)
-        layoutManager.stackFromEnd = true
 
         binding.recView.layoutManager = layoutManager
         binding.recView.setHasFixedSize(true)
@@ -97,6 +96,7 @@ class PlayerCardsActivity : AppCompatActivity() {
 
         viewModel.playerCards.observe(this) { itemList ->
             adapter.updateData(itemList)
+            binding.recView.scrollToPosition(itemList.size - 1)
 
             if(itemList.isEmpty()){
                 binding.txtNoCards.visibility = VISIBLE
