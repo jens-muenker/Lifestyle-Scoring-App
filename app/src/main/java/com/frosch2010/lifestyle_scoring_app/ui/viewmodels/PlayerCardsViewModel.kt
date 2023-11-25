@@ -34,7 +34,7 @@ class PlayerCardsViewModel @Inject constructor(private val cardsRepository: ICar
             CardTypeEnum.SPORT -> currentCards.add(CardDTO(CardTypeEnum.SPORT, cardsRepository.getCardName(card)))
             CardTypeEnum.HOUSE -> currentCards.add(CardDTO(CardTypeEnum.HOUSE, cardsRepository.getCardName(card)))
             CardTypeEnum.JOB -> currentCards.add(CardDTO(CardTypeEnum.JOB, cardsRepository.getCardName(card)))
-            CardTypeEnum.LOVE -> currentCards.add(CardDTO(CardTypeEnum.LOVE, cardsRepository.getCardName(card), cardsRepository.getLoveIcon(card as LoveCard)))
+            CardTypeEnum.LOVE -> currentCards.add(CardDTO(CardTypeEnum.LOVE, cardsRepository.getCardName(card), null, cardsRepository.getLoveIcon(card as LoveCard)))
         }
         _playerCards.value = currentCards
         val player = playerRepository.getPlayer(playerIndex)
@@ -54,7 +54,7 @@ class PlayerCardsViewModel @Inject constructor(private val cardsRepository: ICar
                 CardTypeEnum.SPORT -> currentCards.add(CardDTO(CardTypeEnum.SPORT, cardsRepository.getCardName(it)))
                 CardTypeEnum.HOUSE -> currentCards.add(CardDTO(CardTypeEnum.HOUSE, cardsRepository.getCardName(it)))
                 CardTypeEnum.JOB -> currentCards.add(CardDTO(CardTypeEnum.JOB, cardsRepository.getCardName(it)))
-                CardTypeEnum.LOVE -> currentCards.add(CardDTO(CardTypeEnum.LOVE, cardsRepository.getCardName(it)))
+                CardTypeEnum.LOVE -> currentCards.add(CardDTO(CardTypeEnum.LOVE, cardsRepository.getCardName(it),null,  cardsRepository.getLoveIcon(it as LoveCard)))
             }
             _playerCards.value = currentCards
         }
