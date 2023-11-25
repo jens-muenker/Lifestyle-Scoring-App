@@ -36,9 +36,9 @@ class ListDialogWithIcons(private val context: Context, private val title: Strin
         val iconImageView = rowView.findViewById<ImageView>(R.id.iconImageView)
         val textTextView = rowView.findViewById<TextView>(R.id.textTextView)
 
-        val item = getItem(position) as Pair<Int, String>
-        iconImageView.setImageResource(item.first)
-        textTextView.text = item.second
+        val item = getItem(position) as Pair<String, Int>
+        iconImageView.setImageResource(item.second)
+        textTextView.text = item.first
 
         return rowView
     }
