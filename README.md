@@ -8,6 +8,10 @@ The Lifestyle-Scoring-App for Android is designed to simplify point calculation 
 - **Error Prevention:** No mistakes in the point calculation.
 - **Multiple Players:** The app supports multiple players.
 
+## Download
+
+You can download the app [here](https://play.google.com/store/apps/details?id=com.frosch2010.lifestyle_scoring_app&gl=DE) from Google Play.
+
 ## Privacy Policy
 
 You can find the privacy policy in german and english [here](https://github.com/jens-muenker/Lifestyle-Scoring-App/tree/main/privacy_policy).
