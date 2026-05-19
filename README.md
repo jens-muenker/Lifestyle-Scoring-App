@@ -1,37 +1,34 @@
-# Lifestyle-Scoring-App : Card Game Calculator
+# Lifestyle Scoring App (Android)
 
-The Lifestyle-Scoring-App for Android is designed to simplify point calculation for the card game "Lifestyle".
-
-## Features
-
-- **Easy Point Calculation:** Scan all your cards and the app calculate the points automatically.
-- **Error Prevention:** No mistakes in the point calculation.
-- **Multiple Players:** The app supports multiple players.
+Eine Android-App zur schnellen und fehlerarmen Punkteberechnung für das Kartenspiel **Lifestyle**.
 
 ## Download
 
-You can download the app [here](https://play.google.com/store/apps/details?id=com.frosch2010.lifestyle_scoring_app&gl=DE) from Google Play.
+- Google Play: [Lifestyle Scoring App](https://play.google.com/store/apps/details?id=com.frosch2010.lifestyle_scoring_app&gl=DE)
 
-## Privacy Policy
+## Features
 
-You can find the privacy policy in german and english [here](https://github.com/jens-muenker/Lifestyle-Scoring-App/tree/main/privacy_policy).
+- Karten per Kamera erfassen (Text Recognition / OCR)
+- Punkte automatisch berechnen statt manuell zählen
+- Mehrere Spieler in einer Runde unterstützen
+- Reduzierte Fehlerquote bei der Auswertung
 
-## License
+## Tech Stack
 
-This app is open-source and distributed under the [Apache License 2.0](LICENSE).
+- **Plattform:** Android (minSdk 24, targetSdk 37, compileSdk 37)
+- **Sprache & Build:** Kotlin, Gradle (Kotlin DSL)
+- **Architektur:** MVVM mit klarer Layer-Trennung (UI, Domain, Data)
+- **DI:** Hilt
+- **Kamera/OCR:** CameraX, Google ML Kit Text Recognition
+- **Tests:** JUnit4, Robolectric, Espresso, Mockito
+- **Code Coverage:** JaCoCo
 
-```
-Copyright 2023, Jens Münker
+## Projektstruktur
 
-Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License.
-You may obtain a copy of the License at
+- `app/` - Android-App-Modul
+- `docs/` - Architektur-/Migrationsdokumentation
+- `privacy_policy/` - Datenschutzerklärung (DE/EN)
 
-   http://www.apache.org/licenses/LICENSE-2.0
+## Lizenz
 
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and
-limitations under the License.
-```
+Dieses Projekt steht unter der [Apache License 2.0](LICENSE).

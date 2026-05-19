@@ -1,55 +1,49 @@
-## Privacy Information for Lifestyle-Scoring-App
+# Privacy Information for the Lifestyle Scoring App
 
-Last updated: 07.04.2026
+Last updated: 19 May 2026
 
-I highly value the protection of your data and your privacy.
-This privacy information explains how I handle your personal data when you use
-the Lifestyle-Scoring-App.
-
-**1. Data Controller**
+## 1. Data Controller
 
 The data controller is:
 
 Jens Münker  
-E-Mail: frosch2040@gmail.com
+E-mail: frosch2040@gmail.com
 
-**2. Data Collection**
+## 2. Processing in the App
 
-I only collect and process data that is required for the functionality of the
-Lifestyle-Scoring-App. This currently includes:
+The app calculates points for the card game **Lifestyle**. Only data required for operation is processed, locally on your device:
 
-- Camera access: The app requires access to the camera to scan the cards of the
-  card game.
+- **Game session:** players, cards, and scores for the current round are held in working memory and discarded when you close the app.
+- **Language setting:** your chosen app language is stored locally until you change it or uninstall the app.
+- **Card scan:** when you use the scan feature, the camera is used to recognize card text.
 
-**3. Use of Data**
+No proprietary servers are operated to store your game data.
 
-The collected data is used exclusively for the stated purpose, namely to provide
-the functions of the Lifestyle-Scoring-App. No analysis or sharing with third
-parties takes place.
+## 3. Permissions
 
-**4. Data Storage**
+- **Camera:** for the scan feature when you start it.
 
-Captured data is stored locally on your device and not on servers.
-After card recognition, the data is deleted.
+## 4. Third Parties
 
-**5. Data Sharing**
+**Google Play Store** — distribution of the app; Google may process data in connection with download and updates ([Privacy Policy](https://policies.google.com/privacy)).
 
-Since I do not collect personal data, there is no sharing of such data with
-third parties.
+**Google ML Kit** — on-device text recognition when you use the scan feature ([Terms of Service](https://developers.google.com/ml-kit/terms)). Processing by Google may also occur outside the EU/EEA.
 
-**6. User Rights**
+## 5. Legal Bases
 
-You have the right to information about stored data concerning your person.
-You also have the right to correction, deletion, or blocking of incorrect data.
-Please contact me using the contact details from section 1.
+- Art. 6(1)(b) GDPR — providing the app features you use
+- Art. 6(1)(f) GDPR — technical provision of the app and local processing of your input
 
-**7. Changes to this Privacy Information**
+## 6. Storage Period
 
-I reserve the right to update this privacy information if needed.
-The latest version is available on the
-[GitHub page for English](https://github.com/jens-muenker/Lifestyle-Scoring-App/blob/main/privacy_policy/privacy_policy_en.md).
+- Game session: until you close the app
+- Language setting: until you change it or uninstall the app
+- Camera data during scan: only for immediate recognition while scanning
 
-**8. Contact**
+## 7. Your Rights
 
-For questions or concerns regarding this privacy information, please contact
-frosch2040@gmail.com.
+You have the right to access, rectification, erasure, restriction of processing, data portability, and objection (contact: section 1), and the right to lodge a complaint with a data protection supervisory authority.
+
+## 8. Changes
+
+This privacy information may be updated when the app or the legal framework changes. The version published in the app applies.
