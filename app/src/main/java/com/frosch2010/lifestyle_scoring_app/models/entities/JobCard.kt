@@ -6,7 +6,9 @@ import com.frosch2010.lifestyle_scoring_app.models.interfaces.ICard
 import java.io.Serializable
 
 /**
- * This class is used to define the job card model.
- * @author Jens Münker
+ * Profession card whose subtype unlocks stack-based synergies with other lifestyle categories.
+ *
+ * @property cardType Always [CardTypeEnum.JOB].
+ * @property jobType Role identifier compared structurally when awarding conditional bonuses.
  */
-data class JobCard (override val cardType: CardTypeEnum, val jobType: JobTypeEnum): ICard, Serializable
+data class JobCard(override val cardType: CardTypeEnum, val jobType: JobTypeEnum) : ICard, Serializable

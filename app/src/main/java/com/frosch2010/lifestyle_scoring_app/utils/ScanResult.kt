@@ -4,10 +4,12 @@ import com.frosch2010.lifestyle_scoring_app.models.interfaces.ICard
 import java.io.Serializable
 
 /**
- * This class is used to pass the result of the scan to the ScanCardActivity.
- * @author Jens Münker
+ * Serializable payload crossing activity boundaries when a scan or manual capture completes.
+ *
+ * @property success `true` when a confident card match was produced; `false` for failures or cancel paths.
+ * @property cards Recognized card instance when successful; otherwise `null`.
  */
 data class ScanResult(
     val success: Boolean,
     val cards: ICard? = null,
-): Serializable
+) : Serializable

@@ -1,0 +1,9 @@
+<resources>
+    <color name="card_animal">#7BCB6D</color>
+    <color name="card_sport">#D2C567</color>
+    <color name="card_love">#E47A7A</color>
+    <color name="card_house">#B88BE4</color>
+    <color name="card_car">#A0A0A0</color>
+    <color name="card_job">#74AEE8</color>
+</resources>
+

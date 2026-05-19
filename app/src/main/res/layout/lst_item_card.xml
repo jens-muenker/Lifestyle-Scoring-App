@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
         <variable
@@ -7,41 +9,86 @@
             type="com.frosch2010.lifestyle_scoring_app.models.interfaces.ICard" />
     </data>
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:orientation="horizontal"
+    <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center_vertical"
-        android:minHeight="40dp"
-        android:background="@drawable/back_round_points"
-        android:padding="6dp"
-        android:id="@+id/card_linear">
+        android:clickable="true"
+        android:focusable="true"
+        android:foreground="?attr/selectableItemBackground"
+        app:cardBackgroundColor="?attr/colorSurface"
+        app:cardCornerRadius="14dp"
+        app:strokeColor="?attr/colorOutlineVariant"
+        app:strokeWidth="1dp">
 
-        <ImageView
-            android:layout_width="26dp"
-            android:layout_height="26dp"
-            android:layout_marginEnd="6dp"
-            android:id="@+id/card_icon"
-            app:tint="?colorOnPrimary"
-            android:visibility="gone"/>
-
-        <TextView
-            style="@style/FontSizeMedium"
+        <LinearLayout
+            android:id="@+id/card_linear"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="0.5"
-            android:textColor="?colorOnPrimary"
-            android:id="@+id/card_name"/>
+            android:gravity="center_vertical"
+            android:minHeight="@dimen/list_item_min_height"
+            android:orientation="horizontal"
+            android:paddingStart="12dp"
+            android:paddingTop="10dp"
+            android:paddingEnd="12dp"
+            android:paddingBottom="10dp">
 
-        <TextView
-            style="@style/FontSizeMedium"
-            android:gravity="end"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:textColor="?colorOnPrimary"
-            android:id="@+id/card_points"/>
+            <FrameLayout
+                android:id="@+id/icon_container"
+                android:layout_width="@dimen/icon_container_size"
+                android:layout_height="@dimen/icon_container_size"
+                android:background="@drawable/bg_manual_icon_circle"
+                android:padding="10dp">
 
-    </LinearLayout>
+                <ImageView
+                    android:id="@+id/card_icon"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:contentDescription="@null"
+                    android:importantForAccessibility="no"
+                    tools:src="@drawable/ic_google_home" />
+            </FrameLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginStart="12dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/card_name"
+                    style="@style/FontSizeMedium"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="?attr/colorOnSurface"
+                    android:textStyle="bold"
+                    tools:text="Baumhaus" />
+
+                <TextView
+                    android:id="@+id/card_type"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:textColor="?android:textColorSecondary"
+                    tools:text="Haus" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/card_points"
+                style="@style/FontSizeMedium"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/back_round_points"
+                android:gravity="center"
+                android:minHeight="@dimen/points_chip_min_height"
+                android:minWidth="64dp"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
+                android:textColor="?attr/colorOnPrimaryContainer"
+                android:textStyle="bold"
+                tools:text="5 points" />
+        </LinearLayout>
+
+    </com.google.android.material.card.MaterialCardView>
 
 </layout>

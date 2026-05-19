@@ -1,0 +1,55 @@
+## Privacy Information for Lifestyle-Scoring-App
+
+Last updated: 07.04.2026
+
+I highly value the protection of your data and your privacy.
+This privacy information explains how I handle your personal data when you use
+the Lifestyle-Scoring-App.
+
+**1. Data Controller**
+
+The data controller is:
+
+Jens Münker  
+E-Mail: frosch2040@gmail.com
+
+**2. Data Collection**
+
+I only collect and process data that is required for the functionality of the
+Lifestyle-Scoring-App. This currently includes:
+
+- Camera access: The app requires access to the camera to scan the cards of the
+  card game.
+
+**3. Use of Data**
+
+The collected data is used exclusively for the stated purpose, namely to provide
+the functions of the Lifestyle-Scoring-App. No analysis or sharing with third
+parties takes place.
+
+**4. Data Storage**
+
+Captured data is stored locally on your device and not on servers.
+After card recognition, the data is deleted.
+
+**5. Data Sharing**
+
+Since I do not collect personal data, there is no sharing of such data with
+third parties.
+
+**6. User Rights**
+
+You have the right to information about stored data concerning your person.
+You also have the right to correction, deletion, or blocking of incorrect data.
+Please contact me using the contact details from section 1.
+
+**7. Changes to this Privacy Information**
+
+I reserve the right to update this privacy information if needed.
+The latest version is available on the
+[GitHub page for English](https://github.com/jens-muenker/Lifestyle-Scoring-App/blob/main/privacy_policy/privacy_policy_en.md).
+
+**8. Contact**
+
+For questions or concerns regarding this privacy information, please contact
+frosch2040@gmail.com.

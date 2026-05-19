@@ -3,15 +3,14 @@ package com.frosch2010.lifestyle_scoring_app.services.interfaces
 import com.frosch2010.lifestyle_scoring_app.utils.ScanResult
 
 /**
- * This interface is used to return the result of a card scan to the calling activity.
- * @author Jens Münker
+ * Callback surface for asynchronous scan pipelines to hand results back to hosting activities.
  */
 interface IScanResultCallback {
 
     /**
-     * This method is called when a card is scanned
-     * and the result is ready to be returned to the calling activity.
-     * @param result The result of the card scan.
+     * Invoked on the main thread once OCR, fuzzy matching, or user cancellation has settled.
+     *
+     * @param result Serializable payload describing success, failure, or cancellation semantics.
      */
     fun onScanResult(result: ScanResult)
 }

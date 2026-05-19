@@ -11,12 +11,16 @@
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/text_input_layout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:hint="@string/enter_player_name">
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/edi_player_name"/>
+            android:id="@+id/edi_player_name"
+            android:inputType="textCapWords"
+            android:imeOptions="actionDone"
+            android:maxLines="1" />
 
     </com.google.android.material.textfield.TextInputLayout>
 

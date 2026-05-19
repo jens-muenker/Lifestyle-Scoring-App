@@ -6,7 +6,10 @@ import com.frosch2010.lifestyle_scoring_app.models.interfaces.ICard
 import java.io.Serializable
 
 /**
- * This class is used to define the car card model.
- * @author Jens Münker
+ * Car card carrying both subtype metadata and the printed point value selected during manual entry.
+ *
+ * @property cardType Always [CardTypeEnum.CAR].
+ * @property carType Subtype influencing allowed manual point ladders in the data layer.
+ * @property points Face value contributing directly to car pillar scoring before love multipliers.
  */
-data class CarCard(override val cardType: CardTypeEnum, val carType: CarTypeEnum, val points: Int): ICard, Serializable
+data class CarCard(override val cardType: CardTypeEnum, val carType: CarTypeEnum, val points: Int) : ICard, Serializable

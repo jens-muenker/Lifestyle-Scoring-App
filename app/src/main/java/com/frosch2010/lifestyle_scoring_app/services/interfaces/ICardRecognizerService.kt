@@ -5,15 +5,15 @@ import com.google.android.gms.tasks.Task
 import com.google.mlkit.vision.common.InputImage
 
 /**
- * This interface is used to access the card recognizer service.
- * @author Jens Münker
+ * Vision-sidecar port translating camera frames into domain [ICard] selections via OCR pipelines.
  */
 interface ICardRecognizerService {
 
     /**
-     * This method is used to recognize a card from an image.
-     * @param inputImage The image to recognize the card from.
-     * @return The recognized card.
+     * Executes ML Kit text recognition followed by fuzzy dictionary matching against localized labels.
+     *
+     * @param inputImage Bitmap-backed ML Kit image wrapper produced by the camera pipeline.
+     * @return Completed task with a confident card match, or `null` when OCR fails or confidence is low.
      */
     fun process(inputImage: InputImage): Task<ICard?>
 }
