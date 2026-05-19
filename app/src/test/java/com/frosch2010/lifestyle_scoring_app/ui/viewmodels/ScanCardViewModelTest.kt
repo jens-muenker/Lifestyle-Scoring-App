@@ -1,142 +1,124 @@
 package com.frosch2010.lifestyle_scoring_app.ui.viewmodels
 
+import androidx.arch.core.executor.testing.InstantTaskExecutorRule
+import com.frosch2010.lifestyle_scoring_app.data.repository.interfaces.CardsRepository
+import com.frosch2010.lifestyle_scoring_app.domain.usecase.GetCarCardPointsUseCase
+import com.frosch2010.lifestyle_scoring_app.domain.usecase.GetLoveCardTypesUseCase
+import com.frosch2010.lifestyle_scoring_app.domain.usecase.GetLoveCardsWithIconUseCase
+import com.frosch2010.lifestyle_scoring_app.models.entities.CarCard
+import com.frosch2010.lifestyle_scoring_app.models.entities.LoveCard
+import com.frosch2010.lifestyle_scoring_app.models.enums.CarTypeEnum
 import com.frosch2010.lifestyle_scoring_app.models.enums.CardTypeEnum
+import com.frosch2010.lifestyle_scoring_app.models.enums.LoveTypeEnum
 import com.frosch2010.lifestyle_scoring_app.models.interfaces.ICard
-import com.frosch2010.lifestyle_scoring_app.models.interfaces.ICardsRepository
+import com.frosch2010.lifestyle_scoring_app.utils.ScanResult
+import org.junit.Assert.assertEquals
+import org.junit.Rule
 import org.junit.Test
-import org.junit.runner.RunWith
-import org.mockito.InjectMocks
-import org.mockito.Mock
-import org.mockito.Mockito.mock
-import org.mockito.Mockito.`when`
-import org.mockito.junit.MockitoJUnitRunner
-import org.mockito.kotlin.verify
 
 /**
- * This class tests the ScanCardViewModel class.
- * @autor Jens Münker
+ * Unit tests for [ScanCardViewModel] scan completion handling, love-card dialog branching, and related [LiveData] events.
  */
-@RunWith(MockitoJUnitRunner::class)
 class ScanCardViewModelTest {
 
-    @Mock
-    lateinit var cardsRepository: ICardsRepository
+    /**
+     * Runs Architecture Components executors synchronously so `LiveData` from [ScanCardViewModel] is delivered on the test thread.
+     */
+    @get:Rule
+    val instantExecutorRule = InstantTaskExecutorRule()
 
-    @InjectMocks
-    lateinit var scanCardViewModel: ScanCardViewModel
-
+    /**
+     * Verifies that unsuccessful scans emit a delivery event with an empty card result.
+     */
     @Test
-    fun testGetCardMap() {
+    fun onScanCompleted_withoutCard_emitsNoCardRecognizedEvent() {
         // Arrange
-        `when`(cardsRepository.getCardsMap()).thenReturn(mapOf("card1" to mock(ICard::class.java)))
+        val viewModel = newVm()
 
         // Act
-        val cardMap = scanCardViewModel.getCardMap()
+        viewModel.onScanCompleted(ScanResult(success = false, cards = null))
 
         // Assert
-        assert(cardMap.isNotEmpty())
-        verify(cardsRepository).getCardsMap()
+        val event = viewModel.events.value?.consume() as ScanCardViewModel.UiEvent.DeliverResult
+        assertEquals(false, event.result.success)
+        assertEquals(null, event.result.cards)
     }
 
+    /**
+     * Verifies that selecting a car card asks the UI to choose a point value.
+     */
     @Test
-    fun testShowDialogNoCardRecognizedWithNullCard() {
+    fun onCardSelected_withCar_emitsAskForCarPointsEvent() {
         // Arrange
+        val viewModel = newVm()
+        val card = CarCard(CardTypeEnum.CAR, CarTypeEnum.SUV, 0)
 
         // Act
-        val result = scanCardViewModel.showDialogNoCardRecognized(null)
+        viewModel.onCardSelected(card, success = true)
 
         // Assert
-        assert(result)
+        val event = viewModel.events.value?.consume() as ScanCardViewModel.UiEvent.AskForCarPoints
+        assertEquals(listOf(1, 2, 3), event.choices)
+        assertEquals(true, event.success)
     }
 
+    /**
+     * Verifies that a selected love label is mapped to the typed love card variant.
+     */
     @Test
-    fun testShowDialogNoCardRecognizedWithNonNullCard() {
+    fun onLoveTypeSelected_mapsLabelToTypedLoveCard() {
         // Arrange
-        val card = mock(ICard::class.java)
+        val viewModel = newVm()
+        val rawLoveCard = LoveCard(CardTypeEnum.LOVE, LoveTypeEnum.UNKNOWN)
 
         // Act
-        val result = scanCardViewModel.showDialogNoCardRecognized(card)
+        viewModel.onLoveTypeSelected(rawLoveCard, selectedLabel = "House", success = true)
 
         // Assert
-        assert(!result)
+        val event = viewModel.events.value?.consume() as ScanCardViewModel.UiEvent.DeliverResult
+        val card = event.result.cards as LoveCard
+        assertEquals(LoveTypeEnum.HOUSE, card.loveType)
     }
 
-    @Test
-    fun testShouldAskForCarPointsWithCarCardType() {
-        // Arrange
-        val carCard = mock(ICard::class.java)
-        `when`(carCard.cardType).thenReturn(CardTypeEnum.CAR)
-
-        // Act
-        val result = scanCardViewModel.shouldAskForCarPoints(carCard)
-
-        // Assert
-        assert(result)
+    /**
+     * Creates the view model with fake card metadata providers.
+     */
+    private fun newVm(): ScanCardViewModel {
+        val cardsRepository = FakeCardsRepository()
+        return ScanCardViewModel(
+            getCarCardPointsUseCase = GetCarCardPointsUseCase(cardsRepository),
+            getLoveCardTypesUseCase = GetLoveCardTypesUseCase(cardsRepository),
+            getLoveCardsWithIconUseCase = GetLoveCardsWithIconUseCase(cardsRepository)
+        )
     }
 
-    @Test
-    fun testShouldAskForCarPointsWithNonCarCardType() {
-        // Arrange
-        val nonCarCard = mock(ICard::class.java)
-        `when`(nonCarCard.cardType).thenReturn(CardTypeEnum.LOVE)
-
-        // Act
-        val result = scanCardViewModel.shouldAskForCarPoints(nonCarCard)
-
-        // Assert
-        assert(!result)
-    }
-
-    @Test
-    fun testGetCarCardPoints() {
-        // Arrange
-        val carCard = mock(ICard::class.java)
-        `when`(cardsRepository.getCarCardPoints(carCard)).thenReturn(listOf(1, 2, 3))
-
-        // Act
-        val carCardPoints = scanCardViewModel.getCarCardPoints(carCard)
-
-        // Assert
-        assert(carCardPoints == listOf(1, 2, 3))
-        verify(cardsRepository).getCarCardPoints(carCard)
-    }
-
-    @Test
-    fun testShouldAskForLoveTypeWithLoveCardType() {
-        // Arrange
-        val loveCard = mock(ICard::class.java)
-        `when`(loveCard.cardType).thenReturn(CardTypeEnum.LOVE)
-
-        // Act
-        val result = scanCardViewModel.shouldAskForLoveType(loveCard)
-
-        // Assert
-        assert(result)
-    }
-
-    @Test
-    fun testShouldAskForLoveTypeWithNonLoveCardType() {
-        // Arrange
-        val nonLoveCard = mock(ICard::class.java)
-        `when`(nonLoveCard.cardType).thenReturn(CardTypeEnum.CAR)
-
-        // Act
-        val result = scanCardViewModel.shouldAskForLoveType(nonLoveCard)
-
-        // Assert
-        assert(!result)
-    }
-
-    @Test
-    fun testGetLoveCardTypes() {
-        // Arrange
-        `when`(cardsRepository.getLoveCardTypes()).thenReturn(listOf("Jobs", "House"))
-
-        // Act
-        val loveCardTypes = scanCardViewModel.getLoveCardTypes()
-
-        // Assert
-        assert(loveCardTypes == listOf("Jobs", "House"))
-        verify(cardsRepository).getLoveCardTypes()
+    /**
+     * Fake cards repository with deterministic mapping data for scan tests.
+     */
+    private class FakeCardsRepository : CardsRepository {
+        /**
+         * Returns an empty card map because this test suite bypasses OCR mapping.
+         */
+        override fun getCardsMap(): Map<String, ICard> = emptyMap()
+        /**
+         * Returns no label; not used in this test suite.
+         */
+        override fun getCardName(card: ICard): String = ""
+        /**
+         * Provides fixed car point options for dialog assertions.
+         */
+        override fun getCarCardPoints(card: ICard): List<Int> = listOf(1, 2, 3)
+        /**
+         * Provides fixed love-type labels used by mapping logic.
+         */
+        override fun getLoveCardTypes(): List<String> = listOf("Jobs", "House")
+        /**
+         * Returns a placeholder icon resource ID.
+         */
+        override fun getLoveIcon(loveCard: LoveCard): Int = 0
+        /**
+         * Returns deterministic love-label/icon pairs.
+         */
+        override fun getLoveCardsWithIcon(): List<Pair<String, Int>> = listOf("Jobs" to 1, "House" to 2)
     }
 }

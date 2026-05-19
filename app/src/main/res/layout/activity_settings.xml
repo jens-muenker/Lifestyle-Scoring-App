@@ -1,105 +1,307 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="?attr/colorSurface"
     tools:context=".ui.activities.SettingsActivity">
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="64dp"
-        android:background="?colorPrimary"
-        android:contentInsetStart="0dp"
-        android:contentInsetLeft="0dp"
-        android:contentInsetEnd="0dp"
-        android:contentInsetRight="0dp"
-        android:elevation="2dp"
-        app:contentInsetEnd="0dp"
-        app:contentInsetLeft="0dp"
-        app:contentInsetRight="0dp"
-        app:contentInsetStart="0dp"
-        android:paddingEnd="16dp"
-        android:paddingStart="0dp">
-
-        <ImageButton
-            android:id="@+id/btnBack"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:padding="8dp"
-            android:background="@null"
-            android:scaleType="fitCenter"
-            android:src="@drawable/ic_back"
-            app:tint="?colorOnPrimary"
-            android:layout_marginStart="16dp"
-            android:contentDescription="@string/back_to_home"/>
-
-        <TextView
-            android:id="@+id/txtTitle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/settings"
-            android:paddingStart="15dp"
-            android:paddingEnd="0dp"
-            android:textColor="?colorOnPrimary"
-            android:textSize="22sp"
-            android:layout_gravity="center_vertical"
-            android:layout_weight="1"
-            android:singleLine="true"
-            android:ellipsize="end" />
-
-    </androidx.appcompat.widget.Toolbar>
-
     <LinearLayout
-        android:layout_below="@id/toolbar"
+        android:id="@+id/header_block"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/lin_app_name"
-        android:orientation="horizontal"
-        android:layout_margin="16dp">
+        android:layout_alignParentTop="true"
+        android:orientation="vertical">
 
-        <com.google.android.material.imageview.ShapeableImageView
-            app:shapeAppearanceOverlay="@style/roundedImageViewRounded"
-            android:layout_width="46dp"
-            android:layout_height="46dp"
-            android:background="@mipmap/ic_launcher"
-            android:id="@+id/app_icon"/>
-
-        <TextView
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbar"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="cursive"
-            android:text="@string/lifestyle_scoring"
-            android:textSize="36sp"
-            android:textStyle="bold"
-            android:textAlignment="center"/>
+            android:layout_height="@dimen/toolbar_height"
+            android:background="?attr/colorSurface"
+            android:contentInsetEnd="0dp"
+            android:contentInsetStart="0dp"
+            android:elevation="0dp"
+            android:paddingEnd="@dimen/screen_horizontal_padding"
+            android:paddingStart="0dp"
+            android:stateListAnimator="@null"
+            app:contentInsetEnd="0dp"
+            app:contentInsetStart="0dp"
+            app:elevation="0dp">
 
+            <ImageButton
+                android:id="@+id/btnBack"
+                android:layout_width="@dimen/min_touch_target"
+                android:layout_height="@dimen/min_touch_target"
+                android:layout_marginStart="@dimen/screen_horizontal_padding"
+                android:background="@null"
+                android:contentDescription="@string/back_to_home"
+                android:padding="8dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_back"
+                app:tint="?attr/colorOnSurfaceVariant" />
+
+            <TextView
+                android:id="@+id/txtTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:ellipsize="end"
+                android:paddingStart="8dp"
+                android:paddingEnd="0dp"
+                android:singleLine="true"
+                android:text="@string/settings"
+                android:textColor="?attr/colorOnSurface"
+                android:textSize="@dimen/text_title_toolbar"
+                android:textStyle="bold" />
+        </com.google.android.material.appbar.MaterialToolbar>
+
+        <View
+            android:id="@+id/topBarDivider"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="?attr/colorOutlineVariant"
+            android:visibility="gone" />
     </LinearLayout>
 
-    <TextView
-        android:textAlignment="center"
-        android:layout_centerHorizontal="true"
-        android:layout_margin="16dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        style="@style/FontSizeMedium"
-        android:text="Copyright by Jens Münker 2023"
-        android:id="@+id/txt_copyright"
-        android:layout_below="@id/lin_app_name"/>
-
-    <ScrollView
-        android:layout_below="@id/txt_copyright"
-        android:layout_margin="16dp"
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/scroll_content"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="?android:attr/actionBarSize">
+        android:layout_below="@id/header_block"
+        android:clipToPadding="false"
+        android:fillViewport="true"
+        android:paddingStart="@dimen/screen_horizontal_padding"
+        android:paddingEnd="@dimen/screen_horizontal_padding"
+        android:paddingBottom="@dimen/spacing_medium">
 
-        <TextView
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/txt_privacy_policy"/>
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:paddingTop="@dimen/spacing_small">
 
-    </ScrollView>
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardBackgroundColor="?attr/colorSurfaceContainerHighest"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="0dp"
+                app:strokeColor="?attr/colorOutlineVariant"
+                app:strokeWidth="1dp">
 
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/spacing_medium">
+
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:id="@+id/app_icon"
+                        android:layout_width="56dp"
+                        android:layout_height="56dp"
+                        android:background="@mipmap/ic_launcher"
+                        android:contentDescription="@string/a11y_app_icon"
+                        app:shapeAppearanceOverlay="@style/roundedImageViewRounded" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/spacing_small"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/lifestyle_scoring"
+                            android:textAppearance="@style/TextAppearance.Material3.HeadlineSmall"
+                            android:textColor="?attr/colorOnSurface" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:text="@string/copyright_app"
+                            android:textAppearance="@style/TextAppearance.Material3.BodySmall"
+                            android:textColor="?attr/colorOnSurfaceVariant" />
+                    </LinearLayout>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_small"
+                app:cardBackgroundColor="?attr/colorSurfaceContainerHighest"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="0dp"
+                app:strokeColor="?attr/colorOutlineVariant"
+                app:strokeWidth="1dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingTop="@dimen/spacing_small">
+
+                    <FrameLayout
+                        android:id="@+id/row_language_select"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/spacing_small"
+                        android:layout_marginTop="0dp"
+                        android:layout_marginEnd="@dimen/spacing_small"
+                        android:layout_marginBottom="@dimen/spacing_small"
+                        android:background="@android:color/transparent"
+                        android:foreground="?attr/selectableItemBackground"
+                        android:clickable="true"
+                        android:focusable="true">
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/text_input_language"
+                            style="@style/Widget.Material3.TextInputLayout.FilledBox.ExposedDropdownMenu"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="@string/settings_language"
+                            app:boxBackgroundColor="?attr/colorSurfaceContainerHigh"
+                            app:boxCornerRadiusBottomEnd="28dp"
+                            app:boxCornerRadiusBottomStart="28dp"
+                            app:boxCornerRadiusTopEnd="28dp"
+                            app:boxCornerRadiusTopStart="28dp"
+                            app:boxStrokeColor="?attr/colorOutlineVariant"
+                            app:boxStrokeWidth="0dp"
+                            app:boxStrokeWidthFocused="0dp"
+                            app:endIconTint="?attr/colorPrimary"
+                            app:hintTextColor="?attr/colorOnSurfaceVariant"
+                            app:startIconDrawable="@drawable/ic_language_globe"
+                            app:startIconTint="?attr/colorPrimary">
+
+                            <com.google.android.material.textfield.MaterialAutoCompleteTextView
+                                android:id="@+id/auto_complete_language"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:contentDescription="@string/a11y_language_picker"
+                                android:inputType="none"
+                                android:minHeight="@dimen/list_item_min_height"
+                                android:textAppearance="@style/TextAppearance.Material3.BodyLarge"
+                                android:textColor="?attr/colorOnSurface"
+                                android:textColorHint="?attr/colorOnSurfaceVariant" />
+                        </com.google.android.material.textfield.TextInputLayout>
+                    </FrameLayout>
+
+                    <com.google.android.material.divider.MaterialDivider
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        app:dividerColor="?attr/colorOutlineVariant" />
+
+                    <LinearLayout
+                        android:id="@+id/row_privacy_policy"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/list_item_min_height"
+                        android:background="@android:color/transparent"
+                        android:foreground="?attr/selectableItemBackground"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:paddingTop="@dimen/spacing_small"
+                        android:paddingBottom="@dimen/spacing_small"
+                        android:paddingStart="@dimen/spacing_medium"
+                        android:paddingEnd="@dimen/spacing_medium">
+
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:layout_marginStart="4dp"
+                            android:contentDescription="@null"
+                            android:importantForAccessibility="no"
+                            android:scaleType="fitCenter"
+                            android:src="@drawable/ic_google_privacy_tip"
+                            app:tint="?attr/colorPrimary" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/spacing_small"
+                            android:layout_weight="1"
+                            android:text="@string/privacy_policy_title"
+                            android:textAppearance="@style/TextAppearance.Material3.BodyLarge"
+                            android:textColor="?attr/colorOnSurface" />
+
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:contentDescription="@null"
+                            android:importantForAccessibility="no"
+                            android:rotation="180"
+                            android:src="@drawable/ic_back"
+                            app:tint="?attr/colorOnSurfaceVariant" />
+                    </LinearLayout>
+
+                    <com.google.android.material.divider.MaterialDivider
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:dividerColor="?attr/colorOutlineVariant" />
+
+                    <LinearLayout
+                        android:id="@+id/row_open_source_licenses"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/list_item_min_height"
+                        android:background="@android:color/transparent"
+                        android:foreground="?attr/selectableItemBackground"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:paddingStart="@dimen/spacing_medium"
+                        android:paddingEnd="@dimen/spacing_medium">
+
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:layout_marginStart="4dp"
+                            android:contentDescription="@null"
+                            android:importantForAccessibility="no"
+                            android:scaleType="fitCenter"
+                            android:src="@drawable/ic_google_copyright"
+                            app:tint="?attr/colorPrimary" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/spacing_small"
+                            android:layout_weight="1"
+                            android:text="@string/open_source_licenses"
+                            android:textAppearance="@style/TextAppearance.Material3.BodyLarge"
+                            android:textColor="?attr/colorOnSurface" />
+
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:contentDescription="@null"
+                            android:importantForAccessibility="no"
+                            android:rotation="180"
+                            android:src="@drawable/ic_back"
+                            app:tint="?attr/colorOnSurfaceVariant" />
+                    </LinearLayout>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+
+            <TextView
+                android:id="@+id/txt_build_info"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_medium"
+                android:gravity="center"
+                android:textAppearance="@style/TextAppearance.Material3.BodySmall"
+                android:textColor="?attr/colorOnSurfaceVariant" />
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
 </RelativeLayout>

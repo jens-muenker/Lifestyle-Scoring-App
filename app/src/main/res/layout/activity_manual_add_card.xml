@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="?attr/colorSurface">
+
+        <LinearLayout
+            android:id="@+id/headerContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/colorSurfaceContainer"
+            android:orientation="vertical"
+            android:paddingTop="@dimen/spacing_small"
+            android:paddingBottom="@dimen/spacing_medium">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/toolbar_height"
+                android:background="@android:color/transparent"
+                android:stateListAnimator="@null"
+                android:elevation="0dp"
+                android:contentInsetStart="0dp"
+                android:paddingStart="0dp"
+                android:paddingEnd="@dimen/screen_horizontal_padding"
+                android:paddingTop="4dp"
+                android:paddingBottom="4dp">
+
+                <ImageButton
+                    android:id="@+id/btnBack"
+                    android:layout_width="@dimen/min_touch_target"
+                    android:layout_height="@dimen/min_touch_target"
+                    android:layout_marginStart="0dp"
+                    android:background="@null"
+                    android:contentDescription="@string/back_to_home"
+                    android:padding="8dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/ic_back"
+                    app:tint="?attr/colorOnSurfaceVariant" />
+
+                <TextView
+                    android:id="@+id/txtTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:ellipsize="end"
+                    android:paddingStart="8dp"
+                    android:singleLine="true"
+                    android:text="@string/manual_add_card_title"
+                    android:textColor="?attr/colorOnSurface"
+                    android:textSize="@dimen/text_title_toolbar"
+                    android:textStyle="bold" />
+            </androidx.appcompat.widget.Toolbar>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textInputSearch"
+                style="@style/Widget.Material3.TextInputLayout.FilledBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/screen_horizontal_padding"
+                android:layout_marginEnd="@dimen/screen_horizontal_padding"
+                android:hint="@string/manual_card_search_hint"
+                app:boxBackgroundColor="?attr/colorSurfaceContainerHighest"
+                app:boxStrokeColor="?attr/colorOutlineVariant"
+                app:boxCornerRadiusTopStart="28dp"
+                app:boxCornerRadiusTopEnd="28dp"
+                app:boxCornerRadiusBottomStart="28dp"
+                app:boxCornerRadiusBottomEnd="28dp"
+                app:boxStrokeWidth="0dp"
+                app:boxStrokeWidthFocused="0dp"
+                app:endIconMode="clear_text"
+                app:startIconDrawable="@drawable/ic_google_search"
+                app:startIconTint="?attr/colorOnSurfaceVariant"
+                app:endIconTint="?attr/colorOnSurfaceVariant"
+                app:hintTextColor="?attr/colorOnSurfaceVariant">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/editSearchCard"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:imeOptions="actionDone"
+                    android:inputType="textCapWords|textNoSuggestions|textVisiblePassword"
+                    android:textColor="?attr/colorOnSurface"
+                    android:textColorHint="?attr/colorOnSurfaceVariant" />
+            </com.google.android.material.textfield.TextInputLayout>
+        </LinearLayout>
+
+        <View
+            android:id="@+id/headerDivider"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@id/headerContainer"
+            android:background="?attr/colorOutlineVariant"
+            android:visibility="gone" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recManualCards"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/headerDivider"
+            android:clipToPadding="false"
+            android:paddingStart="@dimen/screen_horizontal_padding"
+            android:paddingTop="@dimen/spacing_small"
+            android:paddingEnd="@dimen/screen_horizontal_padding"
+            android:paddingBottom="@dimen/spacing_small" />
+
+        <TextView
+            android:id="@+id/txtNoResults"
+            style="@style/FontSizeMedium"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:padding="@dimen/spacing_small"
+            android:text="@string/manual_card_no_results"
+            android:visibility="gone" />
+
+        <LinearLayout
+            android:id="@+id/layoutEmptyState"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/headerDivider"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:padding="@dimen/spacing_medium"
+            android:visibility="gone">
+
+            <ImageView
+                android:id="@+id/imgNoResults"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:background="@drawable/bg_manual_icon_circle"
+                android:contentDescription="@null"
+                android:importantForAccessibility="no"
+                android:padding="16dp"
+                android:src="@drawable/ic_search_off"
+                app:tint="?attr/colorPrimary" />
+
+            <TextView
+                android:id="@+id/txtNoResultsTitle"
+                style="@style/FontSizeMedium"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_small"
+                android:text="@string/manual_no_results_title"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/txtNoResultsSubtitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="@string/manual_no_results_subtitle"
+                android:textColor="?android:textColorSecondary" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/txtClearSearch"
+                style="@style/Widget.Material3.Button.TextButton"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/min_touch_target"
+                android:layout_marginTop="@dimen/spacing_small"
+                android:text="@string/manual_clear_search"
+                android:textStyle="bold"
+                app:icon="@drawable/ic_google_search"
+                app:iconGravity="textStart"
+                app:iconPadding="@dimen/spacing_xsmall"
+                app:iconTint="?attr/colorPrimary" />
+        </LinearLayout>
+    </RelativeLayout>
+</layout>

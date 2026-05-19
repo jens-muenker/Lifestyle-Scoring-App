@@ -1,7 +1,9 @@
 package com.frosch2010.lifestyle_scoring_app.ui.viewmodels.dto
 
 /**
- * This data class is used to pass the player data to the UI.
- * @author Jens Münker
+ * Lightweight list row model for the main scoreboard without exposing domain entities to adapters.
+ *
+ * @property name Player display name for the current session.
+ * @property score Aggregated points computed from the player's hand.
  */
-data class PlayerDTO (val name: String, val score: Int)
+data class PlayerDTO(val name: String, val score: Int)

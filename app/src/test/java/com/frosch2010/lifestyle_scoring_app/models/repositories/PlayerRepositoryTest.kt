@@ -1,27 +1,32 @@
 package com.frosch2010.lifestyle_scoring_app.models.repositories
 
+import com.frosch2010.lifestyle_scoring_app.data.repository.impl.InMemoryPlayerRepository
+import com.frosch2010.lifestyle_scoring_app.data.repository.interfaces.PlayerRepository
+import com.frosch2010.lifestyle_scoring_app.data.source.local.impl.InMemoryPlayerLocalDataSource
 import com.frosch2010.lifestyle_scoring_app.models.entities.Player
-import com.frosch2010.lifestyle_scoring_app.models.interfaces.IPlayerRepository
+import org.junit.Assert.assertEquals
+import org.junit.Assert.assertNotEquals
 import org.junit.Before
 import org.junit.Test
-import org.junit.Assert.*
-import org.junit.runner.RunWith
-import org.mockito.junit.MockitoJUnitRunner
 
 /**
- * This class tests the PlayerRepository class.
- * @autor Jens Münker
+ * Unit tests for the [PlayerRepository] port backed by [InMemoryPlayerRepository] and [InMemoryPlayerLocalDataSource].
  */
-@RunWith(MockitoJUnitRunner::class)
 class PlayerRepositoryTest {
 
-    private lateinit var playerRepository: IPlayerRepository
+    private lateinit var playerRepository: PlayerRepository
 
+    /**
+     * Constructs a fresh [InMemoryPlayerRepository] so mutations from one test do not affect the next.
+     */
     @Before
     fun setUp() {
-        playerRepository = PlayerRepository()
+        playerRepository = InMemoryPlayerRepository(InMemoryPlayerLocalDataSource())
     }
 
+    /**
+     * [PlayerRepository.addPlayer] appends the player and exposes it at the end of [PlayerRepository.getPlayers].
+     */
     @Test
     fun testAddPlayer() {
         // Arrange
@@ -35,6 +40,9 @@ class PlayerRepositoryTest {
         assertEquals(player, playerRepository.getPlayers()[0])
     }
 
+    /**
+     * [PlayerRepository.deletePlayer] removes the entry at the given index and clears the roster when the last slot is deleted.
+     */
     @Test
     fun testRemovePlayer() {
         // Arrange
@@ -48,6 +56,9 @@ class PlayerRepositoryTest {
         assertEquals(0, playerRepository.getPlayers().size)
     }
 
+    /**
+     * [PlayerRepository.updatePlayer] replaces the entity at the index while keeping list size unchanged.
+     */
     @Test
     fun testUpdatePlayer() {
         // Arrange
@@ -65,6 +76,9 @@ class PlayerRepositoryTest {
         assertNotEquals(originalPlayer, playerRepository.getPlayers()[0])
     }
 
+    /**
+     * [PlayerRepository.getPlayer] returns the entity previously stored at that roster index.
+     */
     @Test
     fun testGetPlayer() {
         // Arrange

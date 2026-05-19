@@ -5,11 +5,23 @@ import android.widget.ArrayAdapter
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 
 /**
- * This dialog is used to select an item from a list of items.
- * @author Jens Münker
+ * Simple single-column picker backed by `ArrayAdapter` over plain strings (no custom row layout).
+ *
+ * @param context Theme context for dialog construction.
+ * @param title Window title shown above the list.
+ * @param items Selectable string rows presented in declaration order.
+ * @param listener Receiver invoked with the tapped label when the user confirms a choice.
  */
-class ListDialog(private val context: Context, private val title: String, private val items: List<String>, private val listener: OnItemSelectedListener) {
+class ListDialog(
+    private val context: Context,
+    private val title: String,
+    private val items: List<String>,
+    private val listener: OnItemSelectedListener
+) {
 
+    /**
+     * Presents a non-cancelable list dialog; selection dismisses the window after forwarding the label.
+     */
     fun show() {
         val builder = MaterialAlertDialogBuilder(context)
 
@@ -28,7 +40,13 @@ class ListDialog(private val context: Context, private val title: String, privat
         dialog.show()
     }
 
+    /**
+     * Callback for list item activation.
+     */
     interface OnItemSelectedListener {
+        /**
+         * @param item Exact string taken from [items] at the tapped index.
+         */
         fun onItemSelected(item: String)
     }
 }

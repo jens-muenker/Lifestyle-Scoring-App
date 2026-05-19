@@ -2,34 +2,49 @@
 <resources>
     <string name="app_name">Lifestyle-Scoring-App</string>
 
-    <string name="job_love">Job-Liebe</string>
-    <string name="realestate_love">Häuser-Liebe</string>
-    <string name="car_love">Auto-Liebe</string>
-    <string name="animal_love">Tier-Liebe</string>
-
     <string name="how_many_points">Wie viele Punkte hat die Karte?</string>
     <string name="what_type_of_love">Um welche Liebe handelt es sich?</string>
     <string name="scan_card">Karte scannen</string>
-    <string name="points">Punkte: %1$s</string>
-    <string name="playerPoints">%1$s Punkte</string>
+    <plurals name="points_count">
+        <item quantity="one">%1$d Punkt</item>
+        <item quantity="other">%1$d Punkte</item>
+    </plurals>
+    <plurals name="points_label">
+        <item quantity="one">Punkte: %1$d Punkt</item>
+        <item quantity="other">Punkte: %1$d Punkte</item>
+    </plurals>
+    <plurals name="player_points">
+        <item quantity="one">%1$d Punkt</item>
+        <item quantity="other">%1$d Punkte</item>
+    </plurals>
     <string name="only_card_names_are_important">Nur die Kartennamen sind wichtig</string>
-    <string name="scan">Scan</string>
-    <string name="scanning">Scanning…</string>
+    <string name="scan">Scannen</string>
+    <string name="scanning">Scannt…</string>
 
     <string name="game_rules">Spielregeln</string>
     <string name="calculate_points">Punkte berechnen</string>
     <string name="enter_player_name">Spielername eingeben</string>
+    <string name="player_name_empty">Der Spielername darf nicht leer sein.</string>
+    <string name="edit_player_name">Namen ändern</string>
     <string name="ok">OK</string>
     <string name="abort">Abbrechen</string>
 
     <string name="player_list">Spielerliste</string>
     <string name="settings">Einstellungen</string>
 
+    <string name="settings_language">App-Sprache</string>
+    <string name="settings_language_system">Systemstandard</string>
+    <string name="settings_language_de">Deutsch</string>
+    <string name="settings_language_en">Englisch</string>
+
     <string name="no_players">Derzeit sind noch keine Spieler vorhanden.\n\nFüge welche hinzu.</string>
-    <string name="add_new_player">Füge einen Spieler hinzu.</string>
-    <string name="back_to_home">Zurück zum Home Bildschirm</string>
+    <string name="no_players_title">Noch keine Spieler</string>
+    <string name="no_players_subtitle">Füge deinen ersten Spieler hinzu, um zu starten.</string>
+    <string name="add_new_player">Spieler hinzufügen</string>
+    <string name="back_to_home">Zurück</string>
 
     <string name="lifestyle_scoring">Lifestyle-Scoring</string>
+    <string name="home_tagline">Karten und Punkte im Blick.</string>
     <string name="no_camera_permissions">Kamera-Berechtigung nicht gewährt.</string>
     <string name="delete">Löschen</string>
     <string name="delete_player">Spieler löschen?</string>
@@ -38,6 +53,63 @@
     <string name="message_delete_card">Möchten Sie die Karte wirklich löschen?</string>
 
     <string name="yes">Ja</string>
-    <string name="scan_error_message">Ein Fehler ist beim Scan aufgetreten. Versuche es nochmal.</string>
+    <string name="scan_error_message">Ein Fehler ist aufgetreten. Bitte versuche es erneut.</string>
+    <string name="scan_no_card_recognized">Es konnte keine Karte erkannt werden.</string>
+    <string name="scan_camera_error_generic">Die Kamera hat einen Fehler gemeldet oder ist ausgefallen. Versuche es erneut oder füge die Karte manuell hinzu.</string>
+    <string name="scan_camera_binding_failed">Die Kamera konnte nicht gestartet werden.</string>
+    <string name="scan_camera_capture_failed">Das Foto konnte nicht aufgenommen werden. Die Kamera wurde möglicherweise unerwartet beendet.</string>
+    <string name="scan_camera_emulator_hint">Emulatoren haben oft eine eingeschränkte oder instabile Kamera. Nutze „Manuell hinzufügen“ oder richte in den erweiterten Emulator-Steuerelementen eine virtuelle Szene ein.</string>
+    <string name="scan_camera_retry_hint">Tippe erneut auf „Karte scannen“, um es noch einmal zu versuchen.</string>
+    <string name="scan_camera_not_ready">Die Kamera startet noch. Kurz warten und erneut versuchen.</string>
+    <string name="add_card_manually">Manuell hinzufügen</string>
+    <string name="manual_add_card_title">Karte manuell hinzufügen</string>
+    <string name="manual_card_search_hint">Nach Kartenname suchen</string>
+    <string name="manual_card_no_results">Keine passenden Karten gefunden.</string>
+    <string name="manual_no_results_title">Keine Karten gefunden</string>
+    <string name="manual_no_results_subtitle">Versuche einen anderen Begriff oder setze die Suche zurück.</string>
+    <string name="manual_clear_search">Suche zurücksetzen</string>
+    <string name="manual_card_list_item">%1$s (%2$s)</string>
+    <string name="manual_card_name_hint">Kartenname (wie auf der Karte)</string>
+    <string name="manual_card_name_empty">Bitte einen Kartennamen eingeben.</string>
+    <string name="manual_card_query_too_short">Mindestens drei Buchstaben eingeben (Kartentitel).</string>
+    <string name="manual_card_not_recognized">Keine passende Karte gefunden. Schreibweise prüfen oder den Titel genauer eingeben.</string>
+    <string name="duplicate_card_message">Diese Karte ist bereits in der Liste.</string>
     <string name="no_cards">Derzeit sind noch keine Karten vorhanden.\n\nScanne Karten ein.</string>
+    <string name="no_cards_title">Noch keine Karten</string>
+    <string name="no_cards_subtitle">Scanne Karten oder f\u00fcge sie manuell hinzu.</string>
+
+    <plurals name="player_cards_total_points">
+        <item quantity="one">Gesamt: %1$d Punkt</item>
+        <item quantity="other">Gesamt: %1$d Punkte</item>
+    </plurals>
+    <string name="player_cards_points_summary_title">Punkteübersicht</string>
+    <string name="player_cards_show_breakdown">Aufschlüsselung anzeigen</string>
+    <string name="player_cards_hide_breakdown">Aufschlüsselung ausblenden</string>
+    <string name="player_cards_category_points_line">%1$s: %2$d</string>
+
+    <string name="privacy_policy_title">Datenschutz</string>
+    <string name="open_source_licenses">Open-Source-Lizenzen</string>
+    <string name="failed_to_load_licenses">Lizenzinformationen konnten nicht geladen werden.</string>
+    <string name="licenses_none_listed">In diesem Build sind keine Open-Source-Einträge enthalten.</string>
+    <string name="license_unknown">Unbekannt</string>
+    <string name="licenses_line_license">  Lizenz: %1$s</string>
+    <string name="licenses_line_url">  URL: %1$s</string>
+    <string name="licenses_line_license_url">  Lizenz-URL: %1$s</string>
+
+    <string name="settings_build_info">Version %1$s (%2$d)</string>
+    <string name="settings_build_unknown">unbekannt</string>
+    <string name="privacy_policy_fallback_text">Datenschutzinformation ist derzeit nicht verfügbar. Bitte versuche es später erneut.</string>
+
+    <string name="copyright_app">Copyright by Jens Münker 2023</string>
+    <string name="a11y_camera_preview">Kameravorschau zum Karten scannen</string>
+    <string name="a11y_scan_capture">Kartentext erfassen und scannen</string>
+    <string name="a11y_scanning_in_progress">Scan läuft</string>
+    <string name="a11y_player_list">Spielerliste</string>
+    <string name="a11y_app_icon">App-Symbol</string>
+    <string name="a11y_player_row">Spieler %1$s, %2$s</string>
+    <string name="a11y_card_row">Karte %1$s</string>
+    <string name="a11y_card_row_with_points">Karte %1$s, %2$s</string>
+    <string name="a11y_scan_card_action">Neue Karte scannen</string>
+    <string name="a11y_privacy_policy">Datenschutzerklärung</string>
+    <string name="a11y_language_picker">App-Sprache</string>
 </resources>

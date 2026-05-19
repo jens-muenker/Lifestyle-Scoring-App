@@ -2,6 +2,9 @@ package com.frosch2010.lifestyle_scoring_app.models.repositories
 
 import android.content.Context
 import com.frosch2010.lifestyle_scoring_app.R
+import com.frosch2010.lifestyle_scoring_app.data.repository.impl.CardsRepositoryImpl
+import com.frosch2010.lifestyle_scoring_app.data.source.local.impl.CardsResourceLocalDataSource
+import com.frosch2010.lifestyle_scoring_app.data.repository.interfaces.CardsRepository
 import com.frosch2010.lifestyle_scoring_app.models.entities.AnimalCard
 import com.frosch2010.lifestyle_scoring_app.models.entities.CarCard
 import com.frosch2010.lifestyle_scoring_app.models.entities.HouseCard
@@ -23,22 +26,32 @@ import org.mockito.Mockito.`when`
 import org.mockito.junit.MockitoJUnitRunner
 
 /**
- * This class tests the CardsRepository class.
- * @autor Jens Münker
+ * Unit tests for the [CardsRepository] port via [CardsRepositoryImpl] and [CardsResourceLocalDataSource] (string keys
+ * from `R.string` resolved through a mocked [Context]).
  */
 @RunWith(MockitoJUnitRunner::class)
 class CardsRepositoryTest {
 
+    /**
+     * Mockito stub so [CardsResourceLocalDataSource] can return deterministic `getString` labels without a device locale.
+     */
     @Mock
     lateinit var mockContext: Context
 
     private lateinit var cardsRepository: CardsRepository
 
+    /**
+     * Wires [CardsRepositoryImpl] to [CardsResourceLocalDataSource] with [mockContext] before each test.
+     */
     @Before
     fun setUp() {
-        cardsRepository = CardsRepository(mockContext)
+        cardsRepository = CardsRepositoryImpl(CardsResourceLocalDataSource(mockContext))
     }
 
+    /**
+     * [CardsRepository.getCardsMap] returns a non-empty map whose keys match stubbed `getString` results and whose
+     * values use the expected entity subtype per category (animal, car, sport, house, job, love).
+     */
     @Test
     fun testGetCardsMap() {
         // Arrange
@@ -152,6 +165,9 @@ class CardsRepositoryTest {
     }
 
 
+    /**
+     * [CardsRepository.getCardName] returns the same localized strings stubbed on [mockContext] for each sample card.
+     */
     @Test
     fun testGetCardName() {
         // Arrange
@@ -261,6 +277,10 @@ class CardsRepositoryTest {
     }
 
 
+    /**
+     * [CardsRepository.getCarCardPoints] returns the fixed chip ladders from [CardsResourceLocalDataSource], selected only
+     * by [CarCard.carType] (the sample cards' point fields are not part of that mapping).
+     */
     @Test
     fun testGetCarCardPoints() {
         // Arrange
@@ -286,6 +306,10 @@ class CardsRepositoryTest {
     }
 
 
+    /**
+     * [CardsRepository.getLoveCardTypes] returns the four specialization labels from `animal_love`, `realestate_love`,
+     * `job_love`, and `car_love` string resources (stubbed on [mockContext]).
+     */
     @Test
     fun testGetLoveCardTypes() {
         // Arrange

@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/colorSurface"
+    tools:context=".ui.activities.PrivacyPolicyActivity">
+
+    <LinearLayout
+        android:id="@+id/header_block"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:orientation="vertical">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/toolbar_height"
+            android:background="?attr/colorSurface"
+            android:contentInsetEnd="0dp"
+            android:contentInsetStart="0dp"
+            android:elevation="0dp"
+            android:paddingEnd="@dimen/screen_horizontal_padding"
+            android:paddingStart="0dp"
+            android:stateListAnimator="@null"
+            app:contentInsetEnd="0dp"
+            app:contentInsetStart="0dp"
+            app:elevation="0dp">
+
+            <ImageButton
+                android:id="@+id/btnBack"
+                android:layout_width="@dimen/min_touch_target"
+                android:layout_height="@dimen/min_touch_target"
+                android:layout_marginStart="@dimen/screen_horizontal_padding"
+                android:background="@null"
+                android:contentDescription="@string/back_to_home"
+                android:padding="8dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_back"
+                app:tint="?attr/colorOnSurfaceVariant" />
+
+            <TextView
+                android:id="@+id/txtTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:ellipsize="end"
+                android:paddingStart="8dp"
+                android:paddingEnd="0dp"
+                android:singleLine="true"
+                android:text="@string/privacy_policy_title"
+                android:textColor="?attr/colorOnSurface"
+                android:textSize="@dimen/text_title_toolbar"
+                android:textStyle="bold" />
+        </com.google.android.material.appbar.MaterialToolbar>
+
+        <View
+            android:id="@+id/topBarDivider"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="?attr/colorOutlineVariant"
+            android:visibility="gone" />
+    </LinearLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/scroll_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/header_block"
+        android:clipToPadding="false"
+        android:fillViewport="true"
+        android:paddingStart="@dimen/screen_horizontal_padding"
+        android:paddingEnd="@dimen/screen_horizontal_padding"
+        android:paddingBottom="@dimen/spacing_medium">
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_small"
+            app:cardBackgroundColor="?attr/colorSurfaceContainerHighest"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="0dp"
+            app:strokeColor="?attr/colorOutlineVariant"
+            app:strokeWidth="1dp">
+
+            <TextView
+                android:id="@+id/txt_privacy_policy"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/a11y_privacy_policy"
+                android:padding="@dimen/spacing_medium"
+                android:textAppearance="@style/TextAppearance.Material3.BodyLarge"
+                android:textColor="?attr/colorOnSurface" />
+        </com.google.android.material.card.MaterialCardView>
+    </androidx.core.widget.NestedScrollView>
+</RelativeLayout>

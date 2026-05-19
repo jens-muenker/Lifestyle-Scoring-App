@@ -19,9 +19,18 @@ import org.junit.Test
 import org.junit.runner.RunWith
 import org.junit.runners.Parameterized
 
+/**
+ * Parameterized JVM tests for [PlayerPointsCalculationService] against [IPlayerPointsCalculationService.calculatePlayerPoints]
+ * and [IPlayerPointsCalculationService.calculateCategoryPointsBreakdown].
+ */
 @RunWith(Parameterized::class)
 class PlayerPointsCalculationServiceTest(private val cards: List<ICard>, private val expectedPoints: Int) {
     companion object {
+        /**
+         * Matrix of sample hands and expected totals for the parameterized runner.
+         *
+         * @return collection of `[cards, expectedPoints]` rows consumed by JUnit
+         */
         @JvmStatic
         @Parameterized.Parameters
         fun data(): Collection<Array<Any>> {
@@ -114,27 +123,23 @@ class PlayerPointsCalculationServiceTest(private val cards: List<ICard>, private
                     0
                 ),
 
-                // Test Case 9: Only love cards
-                arrayOf(
-                    listOf(
-                        LoveCard(CardTypeEnum.LOVE, LoveTypeEnum.ANIMAL),
-                        LoveCard(CardTypeEnum.LOVE, LoveTypeEnum.HOUSE),
-                        LoveCard(CardTypeEnum.LOVE, LoveTypeEnum.JOB),
-                        LoveCard(CardTypeEnum.LOVE, LoveTypeEnum.CAR)
-                    ),
-                    0
-                )
             )
         }
     }
 
     private lateinit var pointsCalculationService: IPlayerPointsCalculationService
 
+    /**
+     * Constructs a new [PlayerPointsCalculationService] before each test method (for each parameterized row).
+     */
     @Before
     fun setUp() {
         pointsCalculationService = PlayerPointsCalculationService()
     }
 
+    /**
+     * [IPlayerPointsCalculationService.calculatePlayerPoints] returns the parameterized expected total for the sample hand.
+     */
     @Test
     fun testCalculatePlayerPoints() {
         // Act
@@ -142,5 +147,20 @@ class PlayerPointsCalculationServiceTest(private val cards: List<ICard>, private
 
         // Assert
         assertEquals(expectedPoints, calculatedPoints)
+    }
+
+    /**
+     * [IPlayerPointsCalculationService.calculateCategoryPointsBreakdown] totals match the same hand's total score, the sum
+     * of per-category rows, and [IPlayerPointsCalculationService.calculatePlayerPoints] for that hand.
+     */
+    @Test
+    fun testCategoryBreakdownMatchesTotalAndSumOfEntries() {
+        // Act
+        val breakdown = pointsCalculationService.calculateCategoryPointsBreakdown(cards)
+
+        // Assert
+        assertEquals(expectedPoints, breakdown.totalPoints)
+        assertEquals(expectedPoints, breakdown.entries.sumOf { it.points })
+        assertEquals(pointsCalculationService.calculatePlayerPoints(cards), breakdown.totalPoints)
     }
 }

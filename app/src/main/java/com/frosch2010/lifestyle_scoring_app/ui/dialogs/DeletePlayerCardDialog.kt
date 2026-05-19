@@ -5,12 +5,30 @@ import com.frosch2010.lifestyle_scoring_app.R
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 
 /**
- * This dialog is used to ask the user if he really wants to delete something.
- * @author Jens Münker
+ * Confirmation dialog before removing a single card from a player's hand.
+ *
+ * @param context Theme context for Material alert styling.
+ * @param listener ViewModel or activity fragment receiving the confirmed card index.
  */
-class DeletePlayerCardDialog(private val context: Context, private val listener: IDeletePlayerCardDialogCallback) {
+class DeletePlayerCardDialog(
+    private val context: Context,
+    private val listener: IDeletePlayerCardDialogCallback
+) {
 
-    fun show(title: String, message: String, cardIndex: Int) {
+    /**
+     * Shows yes/no confirmation, optionally notifying the host when the dialog fully dismisses.
+     *
+     * @param title Localized title such as "Delete card".
+     * @param message Localized explanation shown in the content area.
+     * @param cardIndex Hand index aligned with repository `Player.cards` ordering.
+     * @param onDismiss Optional callback after any close path; used to reset swipe animations on the row.
+     */
+    fun show(
+        title: String,
+        message: String,
+        cardIndex: Int,
+        onDismiss: (() -> Unit)? = null
+    ) {
         val builder = MaterialAlertDialogBuilder(context)
         builder.setTitle(title)
         builder.setMessage(message)
@@ -25,10 +43,19 @@ class DeletePlayerCardDialog(private val context: Context, private val listener:
         }
 
         val dialog = builder.create()
+        if (onDismiss != null) {
+            dialog.setOnDismissListener { onDismiss.invoke() }
+        }
         dialog.show()
     }
 
+    /**
+     * Callback applied after the user confirms deletion.
+     */
     interface IDeletePlayerCardDialogCallback {
+        /**
+         * @param cardIndex Index within the player's card list to remove.
+         */
         fun onDeleteConfirmed(cardIndex: Int)
     }
 }

@@ -1,4 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="spacing_small">16dp</dimen>
+    <dimen name="spacing_medium">24dp</dimen>
+    <dimen name="screen_horizontal_padding">16dp</dimen>
+    <dimen name="toolbar_height">64dp</dimen>
+    <dimen name="min_touch_target">48dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="text_title_toolbar">22sp</dimen>
+    <dimen name="list_item_min_height">56dp</dimen>
+    <dimen name="swipe_action_icon_size">24dp</dimen>
+    <dimen name="dropdown_popup_corner_radius">16dp</dimen>
+    <dimen name="spacing_xsmall">8dp</dimen>
+    <dimen name="licenses_item_gap">4dp</dimen>
+    <dimen name="main_list_bottom_padding">100dp</dimen>
+    <dimen name="player_cards_list_bottom_padding">156dp</dimen>
+    <dimen name="swipe_action_text_size">16sp</dimen>
+    <dimen name="swipe_action_corner_radius">24dp</dimen>
+    <dimen name="swipe_action_vertical_inset">6dp</dimen>
+    <dimen name="swipe_action_label_gap">8dp</dimen>
+    <dimen name="icon_medium">24dp</dimen>
+    <dimen name="icon_container_size">44dp</dimen>
+    <dimen name="radius_large">16dp</dimen>
+    <dimen name="stroke_width_hairline">1dp</dimen>
+    <dimen name="points_breakdown_max_height">200dp</dimen>
+    <dimen name="points_chip_min_height">36dp</dimen>
 </resources>

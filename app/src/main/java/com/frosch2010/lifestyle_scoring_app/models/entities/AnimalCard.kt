@@ -6,7 +6,9 @@ import com.frosch2010.lifestyle_scoring_app.models.interfaces.ICard
 import java.io.Serializable
 
 /**
- * This class is used to define the animal card model.
- * @author Jens Münker
+ * Concrete animal card identified solely by its species discriminator for set-scoring logic.
+ *
+ * @property cardType Always [CardTypeEnum.ANIMAL] for this value object.
+ * @property animalType Species used when grouping duplicates for animal scoring passes.
  */
 data class AnimalCard(override val cardType: CardTypeEnum, val animalType: AnimalTypeEnum) : ICard, Serializable
