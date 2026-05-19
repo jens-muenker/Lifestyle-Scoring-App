@@ -1,35 +1,49 @@
+# Datenschutzinformation für die Lifestyle-Scoring-App
 
-Datenschutzerklärung für Lifestyle-Scoring-App
+Stand: 19.05.2026
 
-Letzte Aktualisierung: 16.11.2023
+## 1. Verantwortliche Stelle
 
-Ich lege großen Wert auf den Schutz Ihrer Daten und Ihrer Privatsphäre. Diese Datenschutzerklärung informiert Sie darüber, wie ich mit Ihren personenbezogenen Daten umgehen, wenn Sie meine Lifestyle-Scoring-App nutzen.
+Verantwortlich für die Datenverarbeitung ist:
 
-**1. Verantwortliche Stelle**
-   Verantwortlich für die Datenverarbeitung ist:
-
-Jens Münker
+Jens Münker  
 E-Mail: frosch2040@gmail.com
 
-**2. Datenerhebung**
-   Ich erhebe und verarbeite nur die Daten, die für die Funktionalität der Lifestyle-Scoring-App notwendig sind. Dabei handelt es sich ausschließlich um:
+## 2. Verarbeitung in der App
 
-- Kamerazugriff: Die App benötigt Zugriff auf die Kamera, um die Karten des Kartenspiels scannen zu können.
+Die App dient der Punkteberechnung für das Kartenspiel **Lifestyle**. Verarbeitet werden nur die für den Betrieb erforderlichen Daten, und zwar lokal auf Ihrem Gerät:
 
-**3. Nutzung der Daten**
-   Die erhobenen Daten werden ausschließlich für den angegebenen Zweck verwendet, nämlich um die Funktionen der Lifestyle-Scoring-App bereitzustellen. Es erfolgt keine Auswertung oder Weitergabe der Daten an Dritte.
+- **Spielsitzung:** Spieler, Karten und Punkte der laufenden Runde werden im Arbeitsspeicher gehalten und beim Beenden der App verworfen.
+- **Spracheinstellung:** Ihre gewählte App-Sprache wird lokal gespeichert, bis Sie sie ändern oder die App deinstallieren.
+- **Karten-Scan:** Wenn Sie die Scan-Funktion nutzen, wird der Kamerazugriff für die Texterkennung der Karte verwendet.
 
-**4. Datenspeicherung**
-   Die erfassten Daten werden lokal auf Ihrem Gerät gespeichert und nicht auf unseren Servern. Nach der Karten-Erfassung werden die Daten gelöscht.
+Es werden keine eigenen Server betrieben, auf denen Ihre Spieldaten gespeichert werden.
 
-**5. Weitergabe von Daten**
-   Da ich keine personenbezogenen Daten erhebe, gibt es keine Weitergabe dieser Daten an Dritte.
+## 3. Berechtigungen
 
-**6. Rechte des Nutzers**
-   Sie haben das Recht auf Auskunft über die bei mir zu Ihrer Person gespeicherten Daten. Darüber hinaus haben Sie das Recht auf Berichtigung, Löschung oder Sperrung unzutreffender Daten. Bitte kontaktieren Sie mich dazu über die in Abschnitt 1 genannten Kontaktdaten.
+- **Kamera:** für die Scan-Funktion, wenn Sie diese starten.
 
-**7. Änderungen dieser Datenschutzerklärung**
-   Ich behalte mir vor, diese Datenschutzerklärung bei Bedarf zu aktualisieren. Die jeweils aktuelle Version ist auf der [GitHub page](https://github.com/jens-muenker/Lifestyle-Scoring-App) der App verfügbar.
+## 4. Drittanbieter
 
-**8. Kontakt**
-   Für Fragen oder Anliegen bezüglich dieser Datenschutzerklärung können Sie sich an frosch2040@gmail.com wenden.
+**Google Play Store** — Vertrieb der App; Google kann im Zusammenhang mit Download und Aktualisierung Daten verarbeiten ([Datenschutzerklärung](https://policies.google.com/privacy)).
+
+**Google ML Kit** — bei Nutzung der Scan-Funktion Texterkennung auf dem Gerät ([Nutzungsbedingungen](https://developers.google.com/ml-kit/terms)). Eine Verarbeitung durch Google kann auch außerhalb der EU/des EWR stattfinden.
+
+## 5. Rechtsgrundlagen
+
+- Art. 6 Abs. 1 lit. b DSGVO — Bereitstellung der von Ihnen genutzten App-Funktionen
+- Art. 6 Abs. 1 lit. f DSGVO — technische Bereitstellung der App und lokale Verarbeitung Ihrer Eingaben
+
+## 6. Speicherdauer
+
+- Spielsitzung: bis zum Beenden der App
+- Spracheinstellung: bis zur Änderung oder Deinstallation
+- Kameradaten beim Scan: nur für die unmittelbare Erkennung während des Scans
+
+## 7. Ihre Rechte
+
+Sie haben das Recht auf Auskunft, Berichtigung, Löschung, Einschränkung der Verarbeitung, Datenübertragbarkeit und Widerspruch (Kontakt: Abschnitt 1) sowie das Recht auf Beschwerde bei einer Datenschutzaufsichtsbehörde.
+
+## 8. Änderungen
+
+Diese Datenschutzinformation kann bei Änderungen der App oder der Rechtslage angepasst werden. Maßgeblich ist die in der App veröffentlichte Fassung.

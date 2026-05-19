@@ -1,35 +1,49 @@
+# Privacy Information for the Lifestyle Scoring App
 
-Privacy Policy for Lifestyle-Socring-App
+Last updated: 19 May 2026
 
-Last updated: 16.11.2023
+## 1. Data Controller
 
-I highly value the protection of your data and your privacy. This Privacy Policy informs you about how we handle your personal data when you use our Lifestyle-Socring-App.
+The data controller is:
 
-**1. Data Controller**
-   Responsible for data processing is:
+Jens Münker  
+E-mail: frosch2040@gmail.com
 
-Jens Münker
-E-Mail: frosch2040@gmail.com
+## 2. Processing in the App
 
-**2. Data Collection**
-   I collect and process only the data necessary for the functionality of the Lifestyle-Socring-App. This includes exclusively:
+The app calculates points for the card game **Lifestyle**. Only data required for operation is processed, locally on your device:
 
-- Camera Access: The app requires access to the camera to scan cards of a card game.
+- **Game session:** players, cards, and scores for the current round are held in working memory and discarded when you close the app.
+- **Language setting:** your chosen app language is stored locally until you change it or uninstall the app.
+- **Card scan:** when you use the scan feature, the camera is used to recognize card text.
 
-**3. Use of Data**
-   The collected data is used exclusively for the specified purpose, namely to provide the functionalities of the Lifestyle-Socring-App. There is no analysis or disclosure of data to third parties.
+No proprietary servers are operated to store your game data.
 
-**4. Data Storage**
-   The captured data is stored locally on your device and not on our servers. The data is deleted as soon as the card is recognized.
+## 3. Permissions
 
-**5. Data Sharing**
-   As I do not collect personal data, there is no sharing of such data with third parties.
+- **Camera:** for the scan feature when you start it.
 
-**6. User Rights**
-   You have the right to information about the data stored about you. Furthermore, you have the right to correction, deletion, or blocking of incorrect data. Please contact me using the contact details provided in Section 1.
+## 4. Third Parties
 
-**7. Changes to this Privacy Policy**
-   I reserve the right to update this Privacy Policy as needed. The latest version is available on the [GitHub page](https://github.com/jens-muenker/Lifestyle-Scoring-App) for this app.
+**Google Play Store** — distribution of the app; Google may process data in connection with download and updates ([Privacy Policy](https://policies.google.com/privacy)).
 
-**8. Contact**
-   For questions or concerns regarding this Privacy Policy, you can contact us at frosch2040@gmail.com.
+**Google ML Kit** — on-device text recognition when you use the scan feature ([Terms of Service](https://developers.google.com/ml-kit/terms)). Processing by Google may also occur outside the EU/EEA.
+
+## 5. Legal Bases
+
+- Art. 6(1)(b) GDPR — providing the app features you use
+- Art. 6(1)(f) GDPR — technical provision of the app and local processing of your input
+
+## 6. Storage Period
+
+- Game session: until you close the app
+- Language setting: until you change it or uninstall the app
+- Camera data during scan: only for immediate recognition while scanning
+
+## 7. Your Rights
+
+You have the right to access, rectification, erasure, restriction of processing, data portability, and objection (contact: section 1), and the right to lodge a complaint with a data protection supervisory authority.
+
+## 8. Changes
+
+This privacy information may be updated when the app or the legal framework changes. The version published in the app applies.
